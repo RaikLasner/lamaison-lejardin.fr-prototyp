@@ -1,0 +1,1386 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>lamaison-lejardin.fr - Comparateur de prix maison &amp; jardin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: #333;
+      background: #fff;
+    }
+
+    /* Oswald für alle Headlines */
+    h1, h2, h3,
+    .carousel-title,
+    .category-teaser > h3 a,
+    .advantage-boxes-item__title,
+    .trust-bar-item h3,
+    .footer-category > a,
+    .footer-search h4 {
+      font-family: 'Oswald', sans-serif;
+      text-transform: none;
+      letter-spacing: 0.3px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+
+    /* ===================== HERO SECTION ===================== */
+    .hero-section {
+      position: relative;
+      height: 564px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .teaser {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 0;
+      line-height: 0;
+    }
+
+    .teaser__img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Dunkles Anthrazit-Overlay */
+    .hero-section::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(43, 45, 66, 0.45);
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    /* ===================== HEADER ===================== */
+    .header {
+      background: transparent;
+      padding: 14px 0;
+      position: relative;
+      z-index: 10000;
+    }
+
+    .header-content {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+
+    .logo svg {
+      height: 40px;
+      width: auto;
+      fill: white;
+    }
+
+    .header__category-menu {
+      display: flex;
+      align-items: center;
+      margin-left: auto;
+    }
+
+    .category-menu-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: white;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .category-menu-toggle-icon {
+      display: inline-block;
+      width: 20px;
+      height: 16px;
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .category-menu-toggle-icon::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: white;
+      border-radius: 1px;
+    }
+
+    .category-menu-toggle-icon::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: white;
+      border-radius: 1px;
+      box-shadow: 0 -7px 0 white;
+    }
+
+    /* Category dropdown */
+    .category-menu-checkbox {
+      display: none;
+    }
+
+    .category-menu-dropdown {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 1200px;
+      max-height: 100vh;
+      background: white;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+      z-index: 9999;
+      padding: 40px 48px;
+      overflow-y: auto;
+      box-sizing: border-box;
+    }
+
+    .category-menu-close {
+      position: absolute;
+      top: 12px;
+      right: 16px;
+      background: none;
+      border: none;
+      font-size: 24px;
+      color: #666;
+      cursor: pointer;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+    }
+
+    .category-menu-close:hover {
+      color: #333;
+    }
+
+    .category-menu-checkbox:checked ~ .category-menu-dropdown {
+      display: block;
+    }
+
+    .category-menu-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      columns: 3;
+      column-gap: 48px;
+      column-fill: balance;
+    }
+
+    .category-menu-list > li {
+      break-inside: avoid;
+      margin-bottom: 20px;
+    }
+
+    .category-menu-list > li > span {
+      display: block;
+      font-weight: 700;
+      font-size: 15px;
+      color: #333;
+      margin-bottom: 6px;
+      padding-bottom: 4px;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .category-menu-list > li > ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 8px 0;
+    }
+
+    .category-menu-list > li > ul > li {
+      margin-bottom: 2px;
+    }
+
+    .category-menu-list > li > ul > li > a {
+      color: #555;
+      text-decoration: none;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    .category-menu-list > li > ul > li > a:hover {
+      color: #2B2D42;
+    }
+
+    /* ===================== SEARCH WITH TITLE ===================== */
+    .search-with-title {
+      position: relative;
+      z-index: 3;
+      padding: 40px 16px 24px;
+      text-align: center;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      justify-content: center;
+    }
+
+    .search-with-title h1 {
+      font-size: 28px;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 20px;
+      text-shadow: 0 1px 4px rgba(0,0,0,0.4);
+      text-align: center;
+    }
+
+    .search-form-wrapper {
+      width: 1200px;
+      max-width: 100%;
+      margin: 0 auto;
+    }
+
+    .search-form {
+      display: flex;
+      width: 100%;
+    }
+
+    .search-input {
+      flex: 1;
+      border-radius: 4px 0 0 4px;
+      border: none;
+      border-right: none;
+      height: 50px;
+      padding: 0 16px;
+      font-size: 16px;
+      font-family: 'Inter', sans-serif;
+      outline: none;
+      color: #333;
+      background: white;
+      box-sizing: border-box;
+    }
+
+    .search-input:focus {
+      border-color: #2B2D42;
+    }
+
+    .search-button {
+      background: #B85800;
+      color: white;
+      border: none;
+      height: 50px;
+      padding: 0 24px;
+      border-radius: 0 4px 4px 0;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 15px;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+      white-space: nowrap;
+      transition: background 0.2s;
+      margin-left: 0;
+      width: 200px;
+      flex-shrink: 0;
+    }
+
+    .search-button:hover {
+      background: #9A4A00;
+    }
+
+    /* ===================== TRUST BAR ===================== */
+    .trust-bar {
+      position: relative;
+      z-index: 3;
+      background: #2B2D42;
+      opacity: 0.9;
+      height: 140px;
+      display: flex;
+      align-items: center;
+    }
+
+    .trust-bar-body {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: nowrap;
+      width: 100%;
+    }
+
+    .trust-bar-item {
+      flex: 1;
+      text-align: center;
+      padding: 8px 20px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.85);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .trust-bar-item h3 + br,
+    .trust-bar-item h3 {
+      flex-shrink: 0;
+    }
+
+    .trust-bar-item-subtitle {
+      margin-top: auto;
+    }
+
+    .trust-bar-item + .trust-bar-item {
+      border-left: 1px solid rgba(255,255,255,0.35);
+    }
+
+    .trust-bar-item h3 {
+      font-size: 14px;
+      font-weight: 600;
+      color: white;
+      margin-bottom: 4px;
+    }
+
+    .trust-bar-item .icon {
+      display: block;
+      width: 36px;
+      height: 36px;
+      margin: 0 auto 8px;
+    }
+
+    .trust-bar-item .icon svg {
+      width: 36px;
+      height: 36px;
+      stroke: white;
+      fill: none;
+    }
+
+    /* ===================== MAIN CONTAINER ===================== */
+    .main-container {
+      padding: 32px 0;
+    }
+
+    /* ===================== CAROUSEL ===================== */
+    .carousel {
+      margin-bottom: 36px;
+    }
+
+    .carousel-title {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 14px;
+      color: #333;
+    }
+
+    /* Brands carousel */
+    .manufacturer-highlights {
+      position: relative;
+      padding: 0 50px;
+    }
+
+    .manufacturer-highlights .carousel-content {
+      display: flex;
+      gap: 0;
+      flex-wrap: nowrap;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .manufacturer-highlights .carousel-tile {
+      width: 200px;
+      min-width: 200px;
+      height: 104px;
+      border: none;
+      border-radius: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: white;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+
+    .manufacturer-highlights .carousel-tile img,
+    .manufacturer-highlights .carousel-tile svg {
+      max-width: 180px;
+      max-height: 80px;
+      object-fit: contain;
+    }
+
+    /* Shops carousel */
+    .shop-highlights {
+      position: relative;
+      padding: 0 50px;
+    }
+
+    .shop-highlights .carousel-content {
+      display: flex;
+      gap: 0;
+      flex-wrap: nowrap;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .shop-highlights .carousel-tile {
+      width: 200px;
+      min-width: 200px;
+      height: 104px;
+      overflow: hidden;
+      border-radius: 0;
+      border: none;
+      background: white;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .shop-highlights .carousel-tile a {
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+    }
+
+    .shop-highlights .carousel-tile-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+    }
+
+    .shop-highlights .carousel-tile-content img {
+      width: 160px;
+      height: 60px;
+      object-fit: contain;
+      display: block;
+    }
+
+    .carousel-tile-content-text {
+      display: none;
+    }
+
+    /* Carousel nav arrows */
+    .carousel-nav-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #E8EDF5;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+      padding: 0;
+    }
+    .carousel-nav-btn svg {
+      width: 20px;
+      height: 20px;
+    }
+    .carousel-nav-btn.nav-left {
+      left: 0;
+    }
+    .carousel-nav-btn.nav-right {
+      right: 0;
+    }
+
+    /* ===================== CATEGORY TEASER ===================== */
+    .category-teaser {
+      margin-bottom: 44px;
+    }
+
+    .category-teaser > h3 {
+      margin-bottom: 14px;
+    }
+
+    .category-teaser > h3 a {
+      color: #2B2D42;
+      font-size: 22px;
+      font-weight: 700;
+      text-decoration: underline;
+    }
+
+    .category-teaser > h3 a:hover {
+      text-decoration: underline;
+    }
+
+    /* Unified row layout */
+    .category-teaser-row {
+      display: flex;
+      background: white;
+      overflow: hidden;
+    }
+
+    /* Main product: left ~50% */
+    .category-teaser-main-body {
+      display: flex;
+      flex-direction: column;
+      padding: 16px;
+      flex: 1 1 50%;
+      min-width: 0;
+    }
+
+    .category-teaser-main-body-inner {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      flex: 1;
+    }
+
+    .category-teaser-main-body-image {
+      flex-shrink: 0;
+    }
+
+    .category-teaser-main-body-image img,
+    .category-teaser-main-body-image > div {
+      width: 300px;
+      height: 250px;
+      object-fit: contain;
+    }
+
+    .category-teaser-main-body-content {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .category-teaser-main-body-content h4 {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      line-height: 1.4;
+      color: rgb(24, 105, 164);
+    }
+
+    .category-teaser-main-body-content-price {
+      font-size: 22px;
+      font-weight: 700;
+      color: #333;
+      margin-bottom: 6px;
+    }
+
+    .shipping-cost {
+      font-size: 12px;
+      color: #666;
+      margin-bottom: 4px;
+    }
+
+    .shipping-cost.free {
+      color: #B85800;
+      font-weight: 500;
+    }
+
+    .shop-name {
+      font-size: 12px;
+      color: #888;
+      margin-bottom: 12px;
+    }
+
+    .btn {
+      background: #B85800;
+      color: white;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      text-decoration: none;
+      display: block;
+      text-align: center;
+      transition: background 0.2s;
+      box-sizing: border-box;
+    }
+
+    .btn:hover {
+      background: #9A4A00;
+    }
+
+    .category-teaser-main-body > .btn {
+      margin-top: 16px;
+      width: 100%;
+    }
+
+    /* Sub products: right ~50%, 3 columns */
+    .category-teaser-content {
+      display: flex;
+      flex: 1 1 50%;
+      min-width: 0;
+    }
+
+    .category-teaser-content-item {
+      flex: 1;
+      padding: 16px 12px;
+      display: flex;
+      flex-direction: column;
+    }
+
+
+
+    .category-teaser-content-image {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .category-teaser-content-image img {
+      width: 100%;
+      height: 140px;
+      object-fit: contain;
+    }
+
+    .category-teaser-content-item-header {
+      flex: 1;
+    }
+
+    .category-teaser-content-item-header h4 {
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 1.4;
+      margin-bottom: 6px;
+      color: rgb(24, 105, 164);
+    }
+
+    .category-teaser-content-item-shop {
+      font-size: 12px;
+      color: #B85800;
+      margin-bottom: 4px;
+    }
+
+    .category-teaser-content-item-price {
+      font-size: 16px;
+      font-weight: 700;
+      color: #333;
+      margin-bottom: 2px;
+    }
+
+    .category-teaser-content-item .shipping-cost {
+      margin-bottom: 10px;
+      min-height: 16px;
+    }
+
+    .category-teaser-content-item .btn {
+      margin-top: auto;
+      width: 100%;
+      background: white;
+      color: #2B2D42;
+      border: 1px solid #2B2D42;
+    }
+
+    .category-teaser-content-item .btn:hover {
+      background: #EDF0F5;
+    }
+
+    /* ===================== ADVANTAGE BOXES ===================== */
+    .advantage-boxes {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+
+    .advantage-boxes-item {
+      background: white;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      padding: 20px;
+    }
+
+    .advantage-boxes-item__tag {
+      background: #2B2D42;
+      color: white;
+      font-size: 12px;
+      padding: 3px 10px;
+      border-radius: 12px;
+      display: inline-block;
+      margin-bottom: 10px;
+      font-weight: 500;
+    }
+
+    .advantage-boxes-item__title {
+      font-size: 17px;
+      font-weight: 700;
+      margin-bottom: 14px;
+      line-height: 1.3;
+      color: #222;
+    }
+
+    .advantage-boxes-item__content p {
+      font-size: 14px;
+      line-height: 1.7;
+      color: #444;
+      margin-bottom: 10px;
+    }
+
+    .advantage-boxes-item__content p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* ===================== FOOTER ===================== */
+    .footer {
+      background: #1E1F2E;
+      color: white;
+      padding: 40px 0 20px;
+    }
+
+    .footer-categories {
+      margin-bottom: 28px;
+    }
+
+    .footer-categories > ul {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-categories > ul > li > ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 4px;
+    }
+
+    .footer-category > a {
+      color: white;
+      font-weight: 700;
+      font-size: 14px;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 8px;
+      min-height: 18px;
+    }
+
+    .footer-category > a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-sub-category a {
+      color: rgba(255,255,255,0.72);
+      font-size: 13px;
+      text-decoration: none;
+      display: block;
+      padding: 3px 0;
+      line-height: 1.4;
+    }
+
+    .footer-sub-category a:hover {
+      color: white;
+    }
+
+    .footer-search {
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.2);
+      margin-bottom: 8px;
+    }
+
+    .footer-search .search-form {
+      max-width: 600px;
+    }
+
+    .footer-search .search-input {
+      background: white;
+      border: none;
+      border-right: none;
+      color: #333;
+    }
+
+    .footer-search .search-input::placeholder {
+      color: #999;
+    }
+
+    .footer-search .search-input:focus {
+      outline: none;
+    }
+
+    .footer-search .search-button {
+      background: #B85800;
+      color: white;
+      font-weight: 700;
+    }
+
+    .footer-search .search-button:hover {
+      background: #9A4A00;
+    }
+
+    .footer-nav {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .footer-nav a {
+      color: rgba(255,255,255,0.7);
+      font-size: 13px;
+      text-decoration: none;
+    }
+
+    .footer-nav a:hover {
+      color: white;
+    }
+
+    .footer-legal {
+      color: rgba(255,255,255,0.5);
+      font-size: 12px;
+      margin-top: 12px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===================== HERO SECTION (Header + Teaser + Search + Trustbar) ===================== -->
+<div class="hero-section">
+
+<!-- TEASER IMAGE (background) -->
+<div class="teaser">
+  <img class="teaser__img" src="https://images.unsplash.com/photo-1513467535987-fd81bc7d62f8?w=1920&q=80&fit=crop" alt="Scie circulaire DeWalt en action">
+</div>
+
+<!-- ===================== HEADER ===================== -->
+<div class="header">
+  <div class="header-content container">
+    <a href="#" class="logo">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 45" aria-label="lamaison-lejardin.fr">
+        <!-- Haus + Blatt Icon -->
+        <g transform="translate(0,4)">
+          <path fill="white" d="M18 2L2 14v20h12v-10h8v10h12V14L18 2z" opacity="0.9"/>
+          <path fill="#81B29A" d="M30 8c-3 0-5 2-7 5-2-3-4-5-7-5s-5 3-5 6c0 6 12 12 12 12s12-6 12-12c0-3-2-6-5-6z" transform="translate(0,-2) scale(0.5)" opacity="0"/>
+          <path fill="white" d="M32 18c0 0-2-1-4 0s-3 4-2 6c-2-1-4 0-5 2" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <ellipse cx="33" cy="15" rx="3" ry="4" fill="white" transform="rotate(-30 33 15)" opacity="0.7"/>
+        </g>
+        <!-- Haupttext -->
+        <text x="44" y="22" fill="white" font-family="Inter, sans-serif" font-size="18" font-weight="700" letter-spacing="-0.5">lamaison-lejardin<tspan fill="#4A6FA5" font-size="14">.fr</tspan></text>
+        <!-- Untertitel -->
+        <text x="44" y="38" fill="rgba(255,255,255,0.75)" font-family="Inter, sans-serif" font-size="9" font-weight="400" letter-spacing="0.5">comparateur de prix maison &amp; jardin</text>
+      </svg>
+    </a>
+    <nav class="header__category-menu">
+      <input type="checkbox" id="cat-menu-toggle" class="category-menu-checkbox">
+      <label class="category-menu-toggle" for="cat-menu-toggle">
+        <span class="category-menu-toggle-icon"></span>
+        <span class="category-menu-toggle-label">Catégories</span>
+      </label>
+      <div class="category-menu-dropdown">
+        <label class="category-menu-close" for="cat-menu-toggle">&times;</label>
+        <ul class="category-menu-list">
+          <li>
+            <span>Outillage</span>
+            <ul>
+              <li><a href="#">Perceuse</a></li>
+              <li><a href="#">Scie circulaire</a></li>
+              <li><a href="#">Ponceuse</a></li>
+              <li><a href="#">Meuleuse</a></li>
+              <li><a href="#">Visseuse</a></li>
+            </ul>
+          </li>
+          <li>
+            <span>Jardin</span>
+            <ul>
+              <li><a href="#">Tondeuse</a></li>
+              <li><a href="#">Taille-haie</a></li>
+              <li><a href="#">Nettoyeur haute pression</a></li>
+              <li><a href="#">Tronçonneuse</a></li>
+              <li><a href="#">Salon de jardin</a></li>
+            </ul>
+          </li>
+          <li>
+            <span>Salle de Bain</span>
+            <ul>
+              <li><a href="#">Robinetterie</a></li>
+              <li><a href="#">Meuble vasque</a></li>
+              <li><a href="#">WC</a></li>
+              <li><a href="#">Douche</a></li>
+              <li><a href="#">Baignoire</a></li>
+            </ul>
+          </li>
+          <li>
+            <span>Cuisine</span>
+            <ul>
+              <li><a href="#">Robinet cuisine</a></li>
+              <li><a href="#">Évier</a></li>
+              <li><a href="#">Électroménager</a></li>
+              <li><a href="#">Plan de travail</a></li>
+            </ul>
+          </li>
+          <li>
+            <span>Décoration &amp; Aménagement</span>
+            <ul>
+              <li><a href="#">Éclairage</a></li>
+              <li><a href="#">Peinture</a></li>
+              <li><a href="#">Revêtement de sol</a></li>
+              <li><a href="#">Rangement</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<!-- ===================== SEARCH WITH TITLE ===================== -->
+<div class="container search-with-title">
+  <h1>Trouvez les meilleurs prix pour votre maison et jardin</h1>
+  <div class="search-form-wrapper">
+    <form class="search-form">
+      <input class="search-input" placeholder="Que recherchez-vous ?" type="text">
+      <button type="submit" class="search-button">
+        <span>Comparer les prix</span>
+      </button>
+    </form>
+  </div>
+</div>
+
+<!-- ===================== TRUST BAR ===================== -->
+<div class="trust-bar">
+  <div class="container">
+    <div class="trust-bar-body">
+      <div class="trust-bar-item">
+        <span class="icon">
+          <svg viewBox="0 0 24 24" stroke-width="1.6" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 9.5L12 3l9 6.5V21a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z"/>
+            <path d="M9 22V12h6v10"/>
+          </svg>
+        </span>
+        <h3>Plus de 500 boutiques partenaires</h3>
+        <span class="trust-bar-item-subtitle">Lancement 2026</span>
+      </div>
+      <div class="trust-bar-item">
+        <span class="icon">
+          <svg viewBox="0 0 24 24" stroke-width="1.6" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3" y="3" width="7" height="7" rx="1"/>
+            <rect x="14" y="3" width="7" height="7" rx="1"/>
+            <rect x="3" y="14" width="7" height="7" rx="1"/>
+            <rect x="14" y="14" width="7" height="7" rx="1"/>
+          </svg>
+        </span>
+        <h3>Plus de 40 millions d'offres</h3>
+        <span class="trust-bar-item-subtitle">Lancement 2026</span>
+      </div>
+      <div class="trust-bar-item">
+        <span class="icon">
+          <svg viewBox="0 0 24 24" stroke-width="1.6" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 9.5L12 3l9 6.5V21a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z"/>
+            <path d="M12 3v7M8 14h8" stroke-width="1.2"/>
+            <circle cx="18" cy="8" r="4" fill="none"/>
+            <path d="M16 6l2 2 4-4" stroke-width="1.5"/>
+          </svg>
+        </span>
+        <h3>Spécialiste maison &amp; jardin</h3>
+        <span class="trust-bar-item-subtitle">Votre comparateur dédié</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div><!-- end .hero-section -->
+
+<!-- ===================== MAIN CONTAINER ===================== -->
+<div class="main-container">
+  <div class="container">
+
+    <!-- BRANDS CAROUSEL -->
+    <div class="carousel manufacturer-highlights">
+      <h3 class="carousel-title">Marques populaires</h3>
+      <div class="carousel-content">
+        <a href="#" title="Makita" class="carousel-tile">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Makita_Logo.svg/200px-Makita_Logo.svg.png" alt="Makita" style="max-width:160px;max-height:80px;object-fit:contain;">
+        </a>
+        <a href="#" title="Bosch" class="carousel-tile">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Bosch-logo.svg/200px-Bosch-logo.svg.png" alt="Bosch" style="max-width:160px;max-height:80px;object-fit:contain;">
+        </a>
+        <a href="#" title="DeWalt" class="carousel-tile">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/DeWalt_Logo.svg/200px-DeWalt_Logo.svg.png" alt="DeWalt" style="max-width:160px;max-height:80px;object-fit:contain;">
+        </a>
+        <a href="#" title="Stihl" class="carousel-tile">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Stihl_Logo.svg/200px-Stihl_Logo.svg.png" alt="Stihl" style="max-width:160px;max-height:80px;object-fit:contain;">
+        </a>
+        <a href="#" title="Metabo" class="carousel-tile">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Metabo_logo_%28no_tagline%29.svg/200px-Metabo_logo_%28no_tagline%29.svg.png" alt="Metabo" style="max-width:160px;max-height:80px;object-fit:contain;">
+        </a>
+        <a href="#" title="Einhell" class="carousel-tile">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Einhell_Germany_logo.svg/200px-Einhell_Germany_logo.svg.png" alt="Einhell" style="max-width:160px;max-height:80px;object-fit:contain;">
+        </a>
+      </div>
+      <button class="carousel-nav-btn nav-left"><svg viewBox="0 0 24 24" fill="none" stroke="#2B2D42" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></button>
+      <button class="carousel-nav-btn nav-right"><svg viewBox="0 0 24 24" fill="none" stroke="#2B2D42" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></button>
+    </div>
+
+    <!-- SHOPS CAROUSEL -->
+    <div class="carousel shop-highlights">
+      <h3 class="carousel-title">Boutiques populaires</h3>
+      <div class="carousel-content">
+        <div class="carousel-tile">
+          <div class="carousel-tile-content">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Leroy_Merlin_-_logo_%28France%2C_1995-%29.svg/200px-Leroy_Merlin_-_logo_%28France%2C_1995-%29.svg.png" alt="Leroy Merlin" style="max-width:160px;max-height:60px;object-fit:contain;">
+          </div>
+        </div>
+        <div class="carousel-tile">
+          <div class="carousel-tile-content">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Castorama_-_logo_%28France%2C_2014-%29.svg/200px-Castorama_-_logo_%28France%2C_2014-%29.svg.png" alt="Castorama" style="max-width:160px;max-height:60px;object-fit:contain;">
+          </div>
+        </div>
+        <div class="carousel-tile">
+          <div class="carousel-tile-content">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/1/1c/ManoMano_2018.png" alt="ManoMano" style="max-width:160px;max-height:60px;object-fit:contain;">
+          </div>
+        </div>
+        <div class="carousel-tile">
+          <div class="carousel-tile-content">
+            <svg viewBox="0 0 180 60" width="180" height="60">
+              <rect x="5" y="5" width="170" height="50" rx="4" fill="#CC0000"/>
+              <text x="90" y="37" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" font-weight="bold" fill="white" letter-spacing="1">Cdiscount</text>
+            </svg>
+          </div>
+        </div>
+        <div class="carousel-tile">
+          <div class="carousel-tile-content">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Bricomarch%C3%A9_logo_2022.svg/200px-Bricomarch%C3%A9_logo_2022.svg.png" alt="Bricomarché" style="max-width:160px;max-height:60px;object-fit:contain;">
+          </div>
+        </div>
+        <div class="carousel-tile">
+          <div class="carousel-tile-content">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Brico_Depot_logo_2021.svg/200px-Brico_Depot_logo_2021.svg.png" alt="Brico Dépôt" style="max-width:160px;max-height:60px;object-fit:contain;">
+          </div>
+        </div>
+      </div>
+      <button class="carousel-nav-btn nav-left"><svg viewBox="0 0 24 24" fill="none" stroke="#2B2D42" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></button>
+      <button class="carousel-nav-btn nav-right"><svg viewBox="0 0 24 24" fill="none" stroke="#2B2D42" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></button>
+    </div>
+
+    <!-- CATEGORY TEASER 1: Tronçonneuses & Scies -->
+    <div class="category-teaser">
+      <h3><a href="#">Tronçonneuses &amp; Scies</a></h3>
+      <div class="category-teaser-row">
+      <div class="category-teaser-main-body">
+        <div class="category-teaser-main-body-inner">
+          <div class="category-teaser-main-body-image">
+            <img src="https://images.unsplash.com/photo-1474742509976-ddec6b387356?w=300&h=250&fit=crop" alt="Stihl MS 271" style="width:300px;height:250px;object-fit:cover;border-radius:4px;">
+          </div>
+          <div class="category-teaser-main-body-content">
+            <h4>Stihl MS 271 Tronçonneuse thermique 50cm</h4>
+            <div class="category-teaser-main-body-content-price">489,00 €</div>
+            <div class="shipping-cost free">Livraison gratuite</div>
+            <div class="shop-name">manomano.fr</div>
+          </div>
+        </div>
+        <a class="btn" href="#">Voir le comparatif</a>
+      </div>
+      <div class="category-teaser-content">
+        <div class="category-teaser-content-item">
+          <div class="category-teaser-content-image">
+            <img src="https://images.unsplash.com/photo-1560846389-956694677531?w=200&h=140&fit=crop" alt="Bosch GKS 190" style="width:100%;height:140px;object-fit:cover;border-radius:4px;">
+          </div>
+          <div class="category-teaser-content-item-header">
+            <h4>Bosch GKS 190 Scie circulaire 1400W</h4>
+          </div>
+          <div class="category-teaser-content-item-shop">amazon.fr</div>
+          <div class="category-teaser-content-item-price">129,90 €</div>
+          <div class="shipping-cost free">Livraison gratuite</div>
+          <button class="btn">Voir l'offre</button>
+        </div>
+        <div class="category-teaser-content-item">
+          <div class="category-teaser-content-image">
+            <img src="https://images.unsplash.com/photo-1474742817425-9f91918183b7?w=200&h=140&fit=crop" alt="Makita DUC353Z" style="width:100%;height:140px;object-fit:cover;border-radius:4px;">
+          </div>
+          <div class="category-teaser-content-item-header">
+            <h4>Makita DUC353Z Tronçonneuse 36V sans fil</h4>
+          </div>
+          <div class="category-teaser-content-item-shop">leroymerlin.fr</div>
+          <div class="category-teaser-content-item-price">269,00 €</div>
+          <div class="shipping-cost">Livraison dès 6,90 €</div>
+          <button class="btn">Voir l'offre</button>
+        </div>
+        <div class="category-teaser-content-item">
+          <div class="category-teaser-content-image">
+            <img src="https://images.unsplash.com/photo-1513467655676-561b7d489a88?w=200&h=140&fit=crop" alt="DeWalt DWE576K" style="width:100%;height:140px;object-fit:cover;border-radius:4px;">
+          </div>
+          <div class="category-teaser-content-item-header">
+            <h4>DeWalt DWE576K Scie circulaire 1600W</h4>
+          </div>
+          <div class="category-teaser-content-item-shop">bricodepot.fr</div>
+          <div class="category-teaser-content-item-price">189,00 €</div>
+          <div class="shipping-cost free">Livraison gratuite</div>
+          <button class="btn">Voir l'offre</button>
+        </div>
+      </div>
+      </div>
+    </div>
+
+    <!-- CATEGORY TEASER 2: Outillage Électroportatif -->
+    <div class="category-teaser">
+      <h3><a href="#">Outillage Électroportatif</a></h3>
+      <div class="category-teaser-row">
+      <div class="category-teaser-main-body">
+        <div class="category-teaser-main-body-inner">
+          <div class="category-teaser-main-body-image">
+            <img src="https://images.unsplash.com/photo-1572981779307-38b8cabb2407?w=300&h=250&fit=crop" alt="Makita DHP486Z" style="width:300px;height:250px;object-fit:contain;border-radius:4px;background:#f5f5f5;">
+          </div>
+          <div class="category-teaser-main-body-content">
+            <h4>Makita DHP486Z Perceuse visseuse à percussion 18V</h4>
+            <div class="category-teaser-main-body-content-price">159,00 €</div>
+            <div class="shipping-cost free">Livraison gratuite</div>
+            <div class="shop-name">amazon.fr</div>
+          </div>
+        </div>
+        <a class="btn" href="#">Voir le comparatif</a>
+      </div>
+      <div class="category-teaser-content">
+        <div class="category-teaser-content-item">
+          <div class="category-teaser-content-image">
+            <img src="https://images.unsplash.com/photo-1504148455328-c376907d081c?w=200&h=140&fit=crop" alt="Bosch GEX 125-1 AE" style="width:100%;height:140px;object-fit:cover;border-radius:4px;">
+          </div>
+          <div class="category-teaser-content-item-header">
+            <h4>Bosch GEX 125-1 AE Ponceuse excentrique</h4>
+          </div>
+          <div class="category-teaser-content-item-shop">manomano.fr</div>
+          <div class="category-teaser-content-item-price">89,90 €</div>
+          <div class="shipping-cost free">Livraison gratuite</div>
+          <button class="btn">Voir l'offre</button>
+        </div>
+        <div class="category-teaser-content-item">
+          <div class="category-teaser-content-image">
+            <img src="https://images.unsplash.com/photo-1522322512347-a0e57fd1744c?w=200&h=140&fit=crop" alt="Metabo W 9-125" style="width:100%;height:140px;object-fit:cover;border-radius:4px;">
+          </div>
+          <div class="category-teaser-content-item-header">
+            <h4>Metabo W 9-125 Quick Meuleuse 900W</h4>
+          </div>
+          <div class="category-teaser-content-item-shop">leroymerlin.fr</div>
+          <div class="category-teaser-content-item-price">79,00 €</div>
+          <div class="shipping-cost">Livraison dès 5,90 €</div>
+          <button class="btn">Voir l'offre</button>
+        </div>
+        <div class="category-teaser-content-item">
+          <div class="category-teaser-content-image">
+            <img src="https://images.unsplash.com/photo-1592054286113-649ba108e968?w=200&h=140&fit=crop" alt="DeWalt DCF899P2" style="width:100%;height:140px;object-fit:cover;border-radius:4px;">
+          </div>
+          <div class="category-teaser-content-item-header">
+            <h4>DeWalt DCF899P2 Boulonneuse à chocs 18V</h4>
+          </div>
+          <div class="category-teaser-content-item-shop">castorama.fr</div>
+          <div class="category-teaser-content-item-price">399,00 €</div>
+          <div class="shipping-cost free">Livraison gratuite</div>
+          <button class="btn">Voir l'offre</button>
+        </div>
+      </div>
+      </div>
+    </div>
+
+    <!-- CATEGORY TEASER 3: Jardin & Extérieur -->
+    <div class="category-teaser">
+      <h3><a href="#">Jardin &amp; Extérieur</a></h3>
+      <div class="category-teaser-row">
+      <div class="category-teaser-main-body">
+        <div class="category-teaser-main-body-inner">
+          <div class="category-teaser-main-body-image">
+            <img src="https://images.unsplash.com/photo-1592365559101-19adfefdf294?w=300&h=250&fit=crop" alt="Kärcher K5" style="width:300px;height:250px;object-fit:cover;border-radius:4px;">
+          </div>
+          <div class="category-teaser-main-body-content">
+            <h4>Kärcher K5 Premium Full Control Nettoyeur HP</h4>
+            <div class="category-teaser-main-body-content-price">349,00 €</div>
+            <div class="shipping-cost free">Livraison gratuite</div>
+            <div class="shop-name">leroymerlin.fr</div>
+          </div>
+        </div>
+        <a class="btn" href="#">Voir le comparatif</a>
+      </div>
+      <div class="category-teaser-content">
+        <div class="category-teaser-content-item">
+          <div class="category-teaser-content-image">
+            <img src="https://images.unsplash.com/photo-1585428311604-98738fc5687a?w=200&h=140&fit=crop" alt="Husqvarna Automower 305" style="width:100%;height:140px;object-fit:cover;border-radius:4px;">
+          </div>
+          <div class="category-teaser-content-item-header">
+            <h4>Husqvarna Automower 305 Robot Tondeuse</h4>
+          </div>
+          <div class="category-teaser-content-item-shop">manomano.fr</div>
+          <div class="category-teaser-content-item-price">899,00 €</div>
+          <div class="shipping-cost free">Livraison gratuite</div>
+          <button class="btn">Voir l'offre</button>
+        </div>
+        <div class="category-teaser-content-item">
+          <div class="category-teaser-content-image">
+            <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=200&h=140&fit=crop" alt="Stihl HS 45" style="width:100%;height:140px;object-fit:cover;border-radius:4px;">
+          </div>
+          <div class="category-teaser-content-item-header">
+            <h4>Stihl HS 45 Taille-haie thermique 60cm</h4>
+          </div>
+          <div class="category-teaser-content-item-shop">bricomarche.com</div>
+          <div class="category-teaser-content-item-price">279,00 €</div>
+          <div class="shipping-cost">Livraison dès 9,90 €</div>
+          <button class="btn">Voir l'offre</button>
+        </div>
+        <div class="category-teaser-content-item">
+          <div class="category-teaser-content-image">
+            <img src="https://images.unsplash.com/photo-1608101854678-b45ad1d25556?w=200&h=140&fit=crop" alt="Einhell GE-CM 36" style="width:100%;height:140px;object-fit:cover;border-radius:4px;">
+          </div>
+          <div class="category-teaser-content-item-header">
+            <h4>Einhell GE-CM 36 Tondeuse sans fil 36V</h4>
+          </div>
+          <div class="category-teaser-content-item-shop">cdiscount.com</div>
+          <div class="category-teaser-content-item-price">219,00 €</div>
+          <div class="shipping-cost free">Livraison gratuite</div>
+          <button class="btn">Voir l'offre</button>
+        </div>
+      </div>
+      </div>
+    </div>
+
+    <!-- ADVANTAGE BOXES -->
+    <div class="advantage-boxes">
+      <div class="advantage-boxes-item">
+        <span class="advantage-boxes-item__tag">#meilleurprix</span>
+        <h3 class="advantage-boxes-item__title">Comparez les prix et trouvez la meilleure offre</h3>
+        <div class="advantage-boxes-item__content">
+          <img src="https://images.unsplash.com/photo-1553729459-efe14ef6055d?w=600&h=180&fit=crop" alt="Économisez de l'argent" style="width:100%;height:180px;object-fit:cover;margin-bottom:12px;border-radius:4px;">
+          <span>
+            <p>lamaison-lejardin.fr est votre comparateur de prix spécialisé pour la maison et le jardin. Nous comparons les offres de plus de 500 boutiques françaises pour vous garantir le meilleur rapport qualité-prix sur le mobilier de jardin, l'outillage, la décoration et bien plus encore.</p>
+          </span>
+        </div>
+      </div>
+      <div class="advantage-boxes-item">
+        <span class="advantage-boxes-item__tag">#maisonetjardin</span>
+        <h3 class="advantage-boxes-item__title">Tout pour la maison et le jardin en un seul endroit</h3>
+        <div class="advantage-boxes-item__content">
+          <img src="https://images.unsplash.com/photo-1492201794891-32eece378309?w=600&h=180&fit=crop" alt="Maison et jardin" style="width:100%;height:180px;object-fit:cover;margin-bottom:12px;border-radius:4px;">
+          <span>
+            <p>Des tondeuses aux robinets, des meubles de jardin aux outils électroportatifs — notre comparateur couvre toutes les catégories de l'univers maison et jardin. Parcourez nos milliers de produits et trouvez exactement ce dont vous avez besoin pour votre intérieur et votre extérieur.</p>
+          </span>
+        </div>
+      </div>
+      <div class="advantage-boxes-item">
+        <span class="advantage-boxes-item__tag">#confianceetsecurite</span>
+        <h3 class="advantage-boxes-item__title">Des boutiques vérifiées pour acheter en toute confiance</h3>
+        <div class="advantage-boxes-item__content">
+          <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=180&fit=crop" alt="Achat en confiance" style="width:100%;height:180px;object-fit:cover;margin-bottom:12px;border-radius:4px;">
+          <span>
+            <p>Nous ne référençons que des marchands fiables et vérifiés. Chaque boutique est contrôlée pour vous offrir une expérience d'achat sécurisée. Comparez sereinement et achetez auprès de revendeurs de confiance partout en France.</p>
+          </span>
+        </div>
+      </div>
+      <div class="advantage-boxes-item">
+        <span class="advantage-boxes-item__tag">#facileetrapide</span>
+        <h3 class="advantage-boxes-item__title">Une recherche rapide et intuitive</h3>
+        <div class="advantage-boxes-item__content">
+          <img src="https://images.unsplash.com/photo-1553988515-32ab96fc8ac4?w=600&h=180&fit=crop" alt="Recherche sur smartphone" style="width:100%;height:180px;object-fit:cover;margin-bottom:12px;border-radius:4px;">
+          <span>
+            <p>Notre site a été conçu pour vous faire gagner du temps. En quelques clics, comparez les prix, filtrez par catégorie et trouvez le produit idéal. Que vous soyez sur ordinateur, tablette ou smartphone, lamaison-lejardin.fr s'adapte à votre écran.</p>
+          </span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-categories">
+      <ul>
+        <li class="footer-category"><a href="#">Outillage</a>
+          <ul>
+            <li class="footer-sub-category"><a href="#">Perceuse</a></li>
+            <li class="footer-sub-category"><a href="#">Visseuse</a></li>
+            <li class="footer-sub-category"><a href="#">Scie circulaire</a></li>
+            <li class="footer-sub-category"><a href="#">Ponceuse</a></li>
+          </ul>
+        </li>
+        <li class="footer-category"><a href="#">Jardin</a>
+          <ul>
+            <li class="footer-sub-category"><a href="#">Tondeuse</a></li>
+            <li class="footer-sub-category"><a href="#">Taille-haie</a></li>
+            <li class="footer-sub-category"><a href="#">Nettoyeur HP</a></li>
+            <li class="footer-sub-category"><a href="#">Abri de jardin</a></li>
+          </ul>
+        </li>
+        <li class="footer-category"><a href="#">Salle de Bain</a>
+          <ul>
+            <li class="footer-sub-category"><a href="#">Robinetterie</a></li>
+            <li class="footer-sub-category"><a href="#">WC suspendu</a></li>
+            <li class="footer-sub-category"><a href="#">Meuble vasque</a></li>
+            <li class="footer-sub-category"><a href="#">Douche</a></li>
+          </ul>
+        </li>
+        <li class="footer-category"><a href="#">Mobilier</a>
+          <ul>
+            <li class="footer-sub-category"><a href="#">Salon de jardin</a></li>
+            <li class="footer-sub-category"><a href="#">Parasol</a></li>
+            <li class="footer-sub-category"><a href="#">Chaise longue</a></li>
+            <li class="footer-sub-category"><a href="#">Table de jardin</a></li>
+          </ul>
+        </li>
+        <li class="footer-category"><a href="#">Maison</a>
+          <ul>
+            <li class="footer-sub-category"><a href="#">Éclairage</a></li>
+            <li class="footer-sub-category"><a href="#">Peinture</a></li>
+            <li class="footer-sub-category"><a href="#">Chauffage</a></li>
+            <li class="footer-sub-category"><a href="#">Sécurité</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer-search">
+      <p style="color: white; font-size: 16px; font-weight: 600; margin: 0 0 10px 0;">Vous n'avez pas trouvé ?</p>
+      <form class="search-form">
+        <input class="search-input" placeholder="Que recherchez-vous ?" type="text">
+        <button type="submit" class="search-button">Comparer les prix</button>
+      </form>
+    </div>
+
+    <div class="footer-nav">
+      <a href="#">Mentions légales</a>
+      <a href="#">Confidentialité</a>
+      <a href="#">CGV</a>
+      <a href="#">Contact</a>
+      <a href="#">Plan du site</a>
+    </div>
+
+    <div class="footer-legal">
+      &copy; 2026 lamaison-lejardin.fr
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
