@@ -823,92 +823,103 @@
       margin-bottom: 16px;
     }
 
-    .similar-grid {
+    .product-grid {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
       gap: 16px;
-      align-items: stretch;
-      max-width: 1200px;
-      margin: 0 auto;
     }
 
-    .similar-card {
+    .product-card {
       border: 1px solid #E0E0E0;
       border-radius: 8px;
       overflow: hidden;
-      background: white;
-      text-decoration: none;
-      color: inherit;
+      background: #fff;
       display: flex;
       flex-direction: column;
       transition: box-shadow 0.2s;
+      text-decoration: none;
     }
 
-    .similar-card:hover {
+    .product-card:hover {
       box-shadow: 0 2px 12px rgba(0,0,0,0.1);
     }
 
-    .similar-card-img {
-      width: 100%;
-      height: 140px;
-      min-height: 140px;
-      object-fit: contain;
-      padding: 12px;
-      background: #FAFAFA;
-      display: block;
+    .product-card-image {
+      background: #F0F0F0;
+      aspect-ratio: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    .similar-card-body {
-      padding: 12px;
-      flex: 1;
+    .product-card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .product-card-body {
+      padding: 10px 12px 12px;
       display: flex;
       flex-direction: column;
-      align-items: center;
-      text-align: center;
+      flex: 1;
     }
 
-    .similar-card-title {
-      font-size: 12px;
+    .product-card-title {
+      color: rgb(24, 105, 164);
+      font-size: 13px;
+      font-weight: 500;
       line-height: 1.4;
-      color: #333;
-      margin-bottom: 8px;
+      text-decoration: none;
       display: -webkit-box;
       -webkit-line-clamp: 3;
       -webkit-box-orient: vertical;
       overflow: hidden;
-      flex: 1;
+      height: calc(3 * 1.4em);
+      margin-bottom: 8px;
     }
 
-    .similar-card-price {
-      font-size: 16px;
+    .product-card-price {
+      font-size: 18px;
       font-weight: 700;
       color: #333;
       margin-bottom: 8px;
+      margin-top: auto;
+      text-align: center;
     }
 
-    .similar-card-btn {
+    .product-card-cta {
       display: block;
-      text-align: center;
-      padding: 8px;
-      background: #EDF0F5;
-      color: #2B2D42;
-      font-size: 12px;
-      font-weight: 600;
+      background: #B85800;
+      color: white;
+      border: none;
       border-radius: 4px;
+      font-weight: 600;
+      font-size: 13px;
+      padding: 8px;
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.2s;
+      font-family: 'Inter', sans-serif;
       margin-bottom: 8px;
     }
 
-    .similar-card-shop {
-      font-size: 11px;
-      color: #666;
+    .product-card-cta:hover { background: #9A4A00; }
+
+    .product-card-shop {
+      font-size: 12px;
+      color: #888;
+      margin-top: auto;
     }
 
-    .similar-card-shipping {
-      font-size: 11px;
+    .product-card-shipping {
+      font-size: 12px;
       color: #666;
+      margin-top: 2px;
     }
 
-    .similar-card-shipping.free {
+    .product-card-shipping.free {
       color: #B85800;
       font-weight: 600;
     }
@@ -1114,30 +1125,16 @@
         display: none;
       }
 
-      .similar-grid {
+      .product-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 12px;
       }
 
-      .similar-grid .similar-card {
-        width: 100%;
-        min-width: 0;
-      }
-
-      .similar-grid .similar-card:nth-child(n+3) {
+      .product-grid .product-card:nth-child(n+3) {
         display: none;
       }
 
-      .similar-card-img {
-        height: 160px;
-        width: 100%;
-      }
-
-      .similar-card-body {
-        width: 100%;
-      }
-
-      .similar-card-title {
+      .product-card-title {
         font-size: 13px;
         -webkit-line-clamp: 2;
       }
@@ -1758,62 +1755,72 @@
 <!-- ===================== SIMILAR PRODUCTS ===================== -->
 <div class="container similar-products">
   <h2>Produits similaires</h2>
-  <div class="similar-grid">
+  <div class="product-grid">
 
-    <a href="#" class="similar-card">
-      <img class="similar-card-img" src="https://cdn.prix.net/offer/fr/nettoyeur-de-terrasses-en-bois-kaercher-pcl-6-patio-cleaner-nettoyage-en-profondeur-sans-effort-dans-200t1809a9afbc4de05fdc11409082a1e97bd86715e3caf.jpg" alt="K&auml;rcher PCL 6">
-      <div class="similar-card-body">
-        <div class="similar-card-title">K&auml;rcher Home &amp; Garden PCL 6 1.644-020.0 Nettoyeur pour terrasses</div>
-        <div class="similar-card-price">181,99&nbsp;&euro;</div>
-        <div class="similar-card-btn">Comparer 21 prix</div>
-        <div class="similar-card-shop">amazon-marketplace.fr</div>
-        <div class="similar-card-shipping free">Livraison gratuite</div>
+    <div class="product-card">
+      <div class="product-card-image">
+        <img src="https://cdn.prix.net/offer/fr/nettoyeur-de-terrasses-en-bois-kaercher-pcl-6-patio-cleaner-nettoyage-en-profondeur-sans-effort-dans-200t1809a9afbc4de05fdc11409082a1e97bd86715e3caf.jpg" alt="K&auml;rcher PCL 6">
       </div>
-    </a>
+      <div class="product-card-body">
+        <a href="product.html" class="product-card-title">K&auml;rcher Home &amp; Garden PCL 6 1.644-020.0 Nettoyeur pour terrasses</a>
+        <div class="product-card-price">181,99&nbsp;&euro;</div>
+        <a href="product.html" class="product-card-cta">Comparer 21 prix</a>
+        <div class="product-card-shop">amazon-marketplace.fr</div>
+        <div class="product-card-shipping free">Livraison gratuite</div>
+      </div>
+    </div>
 
-    <a href="#" class="similar-card">
-      <img class="similar-card-img" src="https://cdn.prix.net/offer/fr/groupe-electrogene-pgg-8-3-7-kw-400v-karcher-1-042-209-0-200t18099661df1759070b91bfe1e52d0af28a1aaf62769.jpg" alt="K&auml;rcher PGG 8/3">
-      <div class="similar-card-body">
-        <div class="similar-card-title">Groupe &eacute;lectrog&egrave;ne Karcher PGG 8/3 - 7kW triphas&eacute; 400V - Essence 4 temps 25L</div>
-        <div class="similar-card-price">1 227,79&nbsp;&euro;</div>
-        <div class="similar-card-btn">Comparer 6 prix</div>
-        <div class="similar-card-shop">Maxoutil.com</div>
-        <div class="similar-card-shipping">Livraison &agrave; partir de 49,90&nbsp;&euro;</div>
+    <div class="product-card">
+      <div class="product-card-image">
+        <img src="https://cdn.prix.net/offer/fr/groupe-electrogene-pgg-8-3-7-kw-400v-karcher-1-042-209-0-200t18099661df1759070b91bfe1e52d0af28a1aaf62769.jpg" alt="K&auml;rcher PGG 8/3">
       </div>
-    </a>
+      <div class="product-card-body">
+        <a href="product.html" class="product-card-title">Groupe &eacute;lectrog&egrave;ne Karcher PGG 8/3 - 7kW triphas&eacute; 400V - Essence 4 temps 25L</a>
+        <div class="product-card-price">1 227,79&nbsp;&euro;</div>
+        <a href="product.html" class="product-card-cta">Comparer 6 prix</a>
+        <div class="product-card-shop">Maxoutil.com</div>
+        <div class="product-card-shipping">Livraison &agrave; partir de 49,90&nbsp;&euro;</div>
+      </div>
+    </div>
 
-    <a href="#" class="similar-card">
-      <img class="similar-card-img" src="https://cdn.prix.net/offer/fr/kaercher-k-7-smart-control-flex-nettoyeur-haute-pression-200t180707a8f7aa0215075e858f04c4237ca238e212b26.jpg" alt="K&auml;rcher K 7">
-      <div class="similar-card-body">
-        <div class="similar-card-title">K&auml;rcher K 7 Smart Control Flex Nettoyeur haute pression Droit Electrique 600 l/h</div>
-        <div class="similar-card-price">422,00&nbsp;&euro;</div>
-        <div class="similar-card-btn">Comparer 16 prix</div>
-        <div class="similar-card-shop">alternate.fr</div>
-        <div class="similar-card-shipping">Livraison &agrave; partir de 10,98&nbsp;&euro;</div>
+    <div class="product-card">
+      <div class="product-card-image">
+        <img src="https://cdn.prix.net/offer/fr/kaercher-k-7-smart-control-flex-nettoyeur-haute-pression-200t180707a8f7aa0215075e858f04c4237ca238e212b26.jpg" alt="K&auml;rcher K 7">
       </div>
-    </a>
+      <div class="product-card-body">
+        <a href="product.html" class="product-card-title">K&auml;rcher K 7 Smart Control Flex Nettoyeur haute pression Droit Electrique 600 l/h</a>
+        <div class="product-card-price">422,00&nbsp;&euro;</div>
+        <a href="product.html" class="product-card-cta">Comparer 16 prix</a>
+        <div class="product-card-shop">alternate.fr</div>
+        <div class="product-card-shipping">Livraison &agrave; partir de 10,98&nbsp;&euro;</div>
+      </div>
+    </div>
 
-    <a href="#" class="similar-card">
-      <img class="similar-card-img" src="https://cdn.prix.net/offer/fr/nettoyeur-haute-pression-kaercher-k2-universel-1-673-000-0-110-bars-360l-h-200t18017e13143d7cec52860298eda516f4158745b2e4b.jpg" alt="K&auml;rcher K2">
-      <div class="similar-card-body">
-        <div class="similar-card-title">Nettoyeur haute pression Karcher K2 universel 1400 W</div>
-        <div class="similar-card-price">69,90&nbsp;&euro;</div>
-        <div class="similar-card-btn">Comparer 16 prix</div>
-        <div class="similar-card-shop">Racetools.fr</div>
-        <div class="similar-card-shipping">Livraison &agrave; partir de 9,90&nbsp;&euro;</div>
+    <div class="product-card">
+      <div class="product-card-image">
+        <img src="https://cdn.prix.net/offer/fr/nettoyeur-haute-pression-kaercher-k2-universel-1-673-000-0-110-bars-360l-h-200t18017e13143d7cec52860298eda516f4158745b2e4b.jpg" alt="K&auml;rcher K2">
       </div>
-    </a>
+      <div class="product-card-body">
+        <a href="product.html" class="product-card-title">Nettoyeur haute pression Karcher K2 universel 1400 W</a>
+        <div class="product-card-price">69,90&nbsp;&euro;</div>
+        <a href="product.html" class="product-card-cta">Comparer 16 prix</a>
+        <div class="product-card-shop">Racetools.fr</div>
+        <div class="product-card-shipping">Livraison &agrave; partir de 9,90&nbsp;&euro;</div>
+      </div>
+    </div>
 
-    <a href="#" class="similar-card">
-      <img class="similar-card-img" src="https://cdn.prix.net/offer/fr/groupe-electrogene-pgg-6-1-5-kw-230v-karcher-1-042-208-0-200t1804f0980098c1a95ba32d24121ee4ad686a759272c.jpg" alt="K&auml;rcher PGG 6/1">
-      <div class="similar-card-body">
-        <div class="similar-card-title">Groupe electrog&egrave;ne PGG 6/1 5 kW 230V 1.042-208.0 - Karcher</div>
-        <div class="similar-card-price">859,46&nbsp;&euro;</div>
-        <div class="similar-card-btn">Comparer 5 prix</div>
-        <div class="similar-card-shop">Maxoutil.com</div>
-        <div class="similar-card-shipping">Livraison &agrave; partir de 49,90&nbsp;&euro;</div>
+    <div class="product-card">
+      <div class="product-card-image">
+        <img src="https://cdn.prix.net/offer/fr/groupe-electrogene-pgg-6-1-5-kw-230v-karcher-1-042-208-0-200t1804f0980098c1a95ba32d24121ee4ad686a759272c.jpg" alt="K&auml;rcher PGG 6/1">
       </div>
-    </a>
+      <div class="product-card-body">
+        <a href="product.html" class="product-card-title">Groupe electrog&egrave;ne PGG 6/1 5 kW 230V 1.042-208.0 - Karcher</a>
+        <div class="product-card-price">859,46&nbsp;&euro;</div>
+        <a href="product.html" class="product-card-cta">Comparer 5 prix</a>
+        <div class="product-card-shop">Maxoutil.com</div>
+        <div class="product-card-shipping">Livraison &agrave; partir de 49,90&nbsp;&euro;</div>
+      </div>
+    </div>
 
   </div>
 </div>
@@ -1824,7 +1831,7 @@
     <div class="footer-categories">
       <ul>
         <li class="footer-category">
-          <details>
+          <details open>
             <summary>Outillage</summary>
             <ul>
               <li class="footer-sub-category"><a href="#">Perceuse</a></li>
@@ -1835,7 +1842,7 @@
           </details>
         </li>
         <li class="footer-category">
-          <details>
+          <details open>
             <summary>Jardin</summary>
             <ul>
               <li class="footer-sub-category"><a href="#">Tondeuse</a></li>
@@ -1846,7 +1853,7 @@
           </details>
         </li>
         <li class="footer-category">
-          <details>
+          <details open>
             <summary>Salle de Bain</summary>
             <ul>
               <li class="footer-sub-category"><a href="#">Robinetterie</a></li>
@@ -1857,7 +1864,7 @@
           </details>
         </li>
         <li class="footer-category">
-          <details>
+          <details open>
             <summary>Mobilier</summary>
             <ul>
               <li class="footer-sub-category"><a href="#">Salon de jardin</a></li>
@@ -1868,7 +1875,7 @@
           </details>
         </li>
         <li class="footer-category">
-          <details>
+          <details open>
             <summary>Maison</summary>
             <ul>
               <li class="footer-sub-category"><a href="#">&Eacute;clairage</a></li>
