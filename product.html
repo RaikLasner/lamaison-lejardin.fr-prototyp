@@ -1,0 +1,1907 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kärcher Puzzi 8/1 - Comparez les prix sur lamaison-lejardin.fr</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: #333;
+      background: #fff;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Oswald', sans-serif;
+      text-transform: none;
+      letter-spacing: 0.3px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+
+    a { color: inherit; }
+
+    /* ===================== HEADER ===================== */
+    .header {
+      background: #2B2D42;
+      padding: 14px 0;
+      position: relative;
+      z-index: 10000;
+    }
+
+    .header-content {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+
+    .logo svg {
+      height: 40px;
+      width: auto;
+      fill: white;
+    }
+
+    .header__category-menu {
+      display: flex;
+      align-items: center;
+      margin-left: auto;
+    }
+
+    .category-menu-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: white;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .category-menu-toggle-icon {
+      display: inline-block;
+      width: 20px;
+      height: 16px;
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .category-menu-toggle-icon::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: white;
+      border-radius: 1px;
+    }
+
+    .category-menu-toggle-icon::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 2px;
+      background: white;
+      border-radius: 1px;
+      box-shadow: 0 -7px 0 white;
+    }
+
+    .category-menu-checkbox { display: none; }
+
+    .category-menu-dropdown {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 1200px;
+      max-height: 100vh;
+      background: white;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+      z-index: 9999;
+      padding: 40px 48px;
+      overflow-y: auto;
+    }
+
+    .category-menu-close {
+      position: absolute;
+      top: 12px; right: 16px;
+      background: none; border: none;
+      font-size: 24px;
+      color: #666;
+      cursor: pointer;
+      width: 32px; height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+    }
+
+    .category-menu-close:hover { color: #333; }
+
+    .category-menu-checkbox:checked ~ .category-menu-dropdown { display: block; }
+
+    .category-menu-list {
+      list-style: none;
+      padding: 0; margin: 0;
+      columns: 3;
+      column-gap: 48px;
+      column-fill: balance;
+    }
+
+    .category-menu-list > li {
+      break-inside: avoid;
+      margin-bottom: 20px;
+    }
+
+    .category-menu-list > li > span {
+      display: block;
+      font-weight: 700;
+      font-size: 15px;
+      color: #333;
+      margin-bottom: 6px;
+      padding-bottom: 4px;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .category-menu-list > li > ul {
+      list-style: none;
+      padding: 0; margin: 0 0 8px 0;
+    }
+
+    .category-menu-list > li > ul > li { margin-bottom: 2px; }
+
+    .category-menu-list > li > ul > li > a {
+      color: #555;
+      text-decoration: none;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    .category-menu-list > li > ul > li > a:hover { color: #2B2D42; }
+
+    /* ===================== SEARCH BAR (in header) ===================== */
+    .header-search {
+      flex: 1;
+      max-width: 500px;
+      margin: 0 24px;
+    }
+
+    .search-form {
+      display: flex;
+      width: 100%;
+    }
+
+    .search-input {
+      flex: 1;
+      border-radius: 4px 0 0 4px;
+      border: none;
+      height: 40px;
+      padding: 0 14px;
+      font-size: 14px;
+      font-family: 'Inter', sans-serif;
+      outline: none;
+      color: #333;
+      background: white;
+    }
+
+    .search-button {
+      background: #B85800;
+      color: white;
+      border: none;
+      height: 40px;
+      padding: 0 18px;
+      border-radius: 0 4px 4px 0;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 13px;
+      font-family: 'Inter', sans-serif;
+      white-space: nowrap;
+      transition: background 0.2s;
+    }
+
+    .search-button:hover { background: #9A4A00; }
+
+    /* ===================== BREADCRUMB ===================== */
+    .breadcrumb {
+      padding: 14px 0;
+      font-size: 13px;
+      color: #666;
+    }
+
+    .breadcrumb a {
+      color: #B85800;
+      text-decoration: none;
+    }
+
+    .breadcrumb a:hover { text-decoration: underline; }
+
+    .breadcrumb span { color: #999; margin: 0 6px; }
+
+    /* ===================== PRODUCT TITLE ===================== */
+    .product-title {
+      padding: 16px 16px 12px;
+      border-bottom: 1px solid #E0E0E0;
+    }
+
+    .product-title h1 {
+      font-size: 24px;
+      font-weight: 600;
+      color: #2B2D42;
+      line-height: 1.3;
+    }
+
+    /* ===================== PRODUCT LAYOUT (2 columns) ===================== */
+    .product-layout {
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .product-sidebar {
+      position: sticky;
+      top: 20px;
+    }
+
+    .product-stage {
+      border: 1px solid #E0E0E0;
+      border-radius: 8px;
+      overflow: hidden;
+      background: #fff;
+      margin-top: 15px;
+    }
+
+    .product-stage-image {
+      padding: 20px;
+      text-align: center;
+    }
+
+    .product-stage-image img {
+      max-width: 100%;
+      max-height: 250px;
+      object-fit: contain;
+    }
+
+    .product-stage-offer {
+      padding: 0 20px 20px;
+      text-align: center;
+    }
+
+    .product-stage-offer h3 {
+      font-size: 16px;
+      font-style: italic;
+      color: #2B2D42;
+      margin-bottom: 12px;
+    }
+
+    .product-stage-offer .best-price {
+      font-size: 28px;
+      font-weight: 700;
+      color: #333;
+      margin-bottom: 4px;
+    }
+
+    .product-stage-offer .best-shipping {
+      font-size: 13px;
+      color: #666;
+      margin-bottom: 16px;
+    }
+
+    .product-stage-offer .btn-best {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      background: #B85800;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 15px;
+      font-weight: 600;
+      font-family: 'Inter', sans-serif;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      transition: background 0.2s;
+      margin-bottom: 10px;
+    }
+
+    .product-stage-offer .btn-best:hover {
+      background: #9A4A00;
+    }
+
+    .product-stage-offer .best-shop {
+      font-size: 13px;
+      color: #666;
+      text-align: center;
+    }
+
+    /* ===================== PRODUCT TOOLBAR ===================== */
+    .product-toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 0;
+      border-bottom: 2px solid #E0E0E0;
+      margin-bottom: 0;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .product-toolbar__nav {
+      display: flex;
+      gap: 24px;
+    }
+
+    .product-toolbar__nav a {
+      color: #666;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      padding-bottom: 10px;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -14px;
+      transition: all 0.2s;
+    }
+
+    .product-toolbar__nav a:hover,
+    .product-toolbar__nav a.active {
+      color: #2B2D42;
+      border-bottom-color: #B85800;
+    }
+
+    .product-condition-toggle {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: #666;
+    }
+
+    .toggle-switch {
+      position: relative;
+      width: 44px;
+      height: 24px;
+      background: #ccc;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .toggle-switch::after {
+      content: '';
+      position: absolute;
+      top: 2px; left: 2px;
+      width: 20px; height: 20px;
+      background: white;
+      border-radius: 50%;
+      transition: transform 0.2s;
+    }
+
+    .toggle-switch.active {
+      background: #B85800;
+    }
+
+    .toggle-switch.active::after {
+      transform: translateX(20px);
+    }
+
+    /* ===================== OFFERS LIST ===================== */
+    .offers-section {
+      padding-top: 0;
+    }
+
+    .offer-promoted {
+      border: 2px solid #E0E0E0;
+      border-radius: 8px;
+      padding: 16px;
+      margin: 16px 0;
+      background: #FAFAFA;
+    }
+
+    .offer-promoted-content {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .offer-promoted-content .offer-shop { order: 1; }
+    .offer-promoted-content .offer-details { order: 2; flex: 1; min-width: 200px; }
+    .offer-promoted-content .offer-price-col { order: 3; }
+
+    .offer-promoted-label {
+      font-size: 11px;
+      color: #999;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 10px;
+    }
+
+    .offer {
+      display: grid;
+      grid-template-columns: 160px 1fr auto auto auto;
+      align-items: center;
+      gap: 16px;
+      padding: 16px 0;
+      border-bottom: 1px solid #E0E0E0;
+    }
+
+    .offer-shop {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .shop-logo {
+      width: 100px;
+      height: 32px;
+      object-fit: contain;
+      display: block;
+    }
+
+    .shop-logo-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 6px 14px;
+      border-radius: 4px;
+      color: white;
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
+      max-width: 120px;
+    }
+
+    .shop-rating {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 12px;
+      color: #666;
+    }
+
+    .rating-bar {
+      width: 60px;
+      height: 6px;
+      background: #E0E0E0;
+      border-radius: 3px;
+      overflow: hidden;
+    }
+
+    .rating-bar-fill {
+      height: 100%;
+      background: #B85800;
+      border-radius: 3px;
+    }
+
+    .offer-details {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .offer-title {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      color: #333;
+      margin-bottom: 6px;
+      line-height: 1.4;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .offer-badges {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-bottom: 6px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 3px;
+    }
+
+    .badge-best-price {
+      background: #FFF3E0;
+      color: #B85800;
+    }
+
+    .badge-voucher {
+      background: #FFF3E0;
+      color: #B85800;
+    }
+
+    .offer-shipping-time {
+      font-size: 12px;
+      color: #666;
+      margin-top: 4px;
+    }
+
+    .offer-payment {
+      display: flex;
+      gap: 4px;
+      flex-wrap: wrap;
+    }
+
+    .payment-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2px 6px;
+      border: 1px solid #E0E0E0;
+      border-radius: 3px;
+      font-size: 10px;
+      color: #666;
+      background: #FAFAFA;
+    }
+
+    .offer-price-col {
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .offer-price {
+      font-size: 20px;
+      font-weight: 700;
+      color: #333;
+    }
+
+    .offer-shipping {
+      font-size: 12px;
+      color: #666;
+      margin-top: 2px;
+    }
+
+    .offer-shipping.free {
+      color: #B85800;
+      font-weight: 600;
+    }
+
+    .offer-action {
+      text-align: center;
+    }
+
+    .btn-offer {
+      display: inline-block;
+      padding: 10px 20px;
+      border: 2px solid #2B2D42;
+      border-radius: 4px;
+      color: #2B2D42;
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      background: white;
+      transition: all 0.2s;
+      font-family: 'Inter', sans-serif;
+      white-space: nowrap;
+    }
+
+    .btn-offer:hover {
+      background: #EDF0F5;
+    }
+
+    /* Responsive offer rows */
+    @media (max-width: 900px) {
+      .offer {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+    }
+
+    /* Mobile-only product image: hidden by default */
+    .mobile-product-image {
+      display: none;
+    }
+
+    /* ===================== PAGINATION ===================== */
+    .pagination {
+      display: flex;
+      gap: 4px;
+      list-style: none;
+      padding: 20px 0;
+      margin: 0;
+    }
+
+    .pagination li a,
+    .pagination li span {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 36px;
+      height: 36px;
+      padding: 0 10px;
+      border: 1px solid #E0E0E0;
+      border-radius: 4px;
+      font-size: 14px;
+      color: #333;
+      text-decoration: none;
+      background: white;
+      transition: all 0.2s;
+    }
+
+    .pagination li a:hover {
+      background: #EDF0F5;
+      border-color: #2B2D42;
+    }
+
+    .pagination li.active span {
+      background: #2B2D42;
+      color: white;
+      border-color: #2B2D42;
+    }
+
+    /* ===================== CONTENT BOX (shared) ===================== */
+    .content-box {
+      background: white;
+      border: 1px solid #E0E0E0;
+      border-radius: 8px;
+      padding: 24px;
+      margin: 20px 0;
+    }
+
+    .content-box h2 {
+      font-size: 20px;
+      color: #2B2D42;
+      margin-bottom: 16px;
+    }
+
+    /* ===================== FICHE TECHNIQUE ===================== */
+    .datasheet-group {
+      margin-bottom: 20px;
+    }
+
+    .datasheet-group h3 {
+      font-size: 15px;
+      color: #2B2D42;
+      margin-bottom: 8px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid #E0E0E0;
+    }
+
+    .datasheet-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .datasheet-table tr:nth-child(even) {
+      background: #F8F8F8;
+    }
+
+    .datasheet-table td {
+      padding: 8px 12px;
+      font-size: 13px;
+      border-bottom: 1px solid #F0F0F0;
+    }
+
+    .datasheet-table td:first-child {
+      color: #666;
+      width: 40%;
+    }
+
+    .datasheet-table td:last-child {
+      font-weight: 500;
+    }
+
+    /* ===================== PRODUCT DESCRIPTION ===================== */
+    .product-description h3 {
+      font-size: 16px;
+      color: #2B2D42;
+      margin: 16px 0 8px;
+    }
+
+    .product-description p {
+      font-size: 14px;
+      line-height: 1.7;
+      color: #444;
+      margin-bottom: 12px;
+    }
+
+    .product-description ul {
+      padding-left: 20px;
+      margin: 8px 0 16px;
+    }
+
+    .product-description li {
+      font-size: 14px;
+      line-height: 1.7;
+      color: #444;
+      margin-bottom: 4px;
+    }
+
+    .en-bref {
+      background: #F8F9FA;
+      border-radius: 6px;
+      padding: 16px 20px;
+      margin-bottom: 20px;
+    }
+
+    .en-bref h3 {
+      font-size: 14px;
+      color: #2B2D42;
+      margin: 0 0 8px;
+    }
+
+    .en-bref ul {
+      padding-left: 20px;
+      margin: 0;
+    }
+
+    .en-bref li {
+      font-size: 13px;
+      line-height: 1.6;
+      color: #444;
+    }
+
+    .ai-note {
+      font-size: 11px;
+      color: #999;
+      font-style: italic;
+      margin-top: 12px;
+    }
+
+    /* ===================== PROS / CONS ===================== */
+    .pros-cons {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .pros-cons h3 {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    .pros h3 { color: #2E7D32; }
+    .cons h3 { color: #C62828; }
+
+    .pros ul, .cons ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .pros li, .cons li {
+      font-size: 14px;
+      line-height: 1.6;
+      padding: 4px 0 4px 24px;
+      position: relative;
+    }
+
+    .pros li::before {
+      content: '\2713';
+      position: absolute;
+      left: 0;
+      color: #2E7D32;
+      font-weight: 700;
+    }
+
+    .cons li::before {
+      content: '\2717';
+      position: absolute;
+      left: 0;
+      color: #C62828;
+      font-weight: 700;
+    }
+
+    /* ===================== SIMILAR PRODUCTS ===================== */
+    .similar-products {
+      margin: 24px auto;
+      padding: 0 16px;
+    }
+
+    .similar-products h2 {
+      font-size: 20px;
+      color: #2B2D42;
+      margin-bottom: 16px;
+    }
+
+    .similar-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+      align-items: stretch;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .similar-card {
+      border: 1px solid #E0E0E0;
+      border-radius: 8px;
+      overflow: hidden;
+      background: white;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.2s;
+    }
+
+    .similar-card:hover {
+      box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+    }
+
+    .similar-card-img {
+      width: 100%;
+      height: 140px;
+      min-height: 140px;
+      object-fit: contain;
+      padding: 12px;
+      background: #FAFAFA;
+      display: block;
+    }
+
+    .similar-card-body {
+      padding: 12px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .similar-card-title {
+      font-size: 12px;
+      line-height: 1.4;
+      color: #333;
+      margin-bottom: 8px;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      flex: 1;
+    }
+
+    .similar-card-price {
+      font-size: 16px;
+      font-weight: 700;
+      color: #333;
+      margin-bottom: 8px;
+    }
+
+    .similar-card-btn {
+      display: block;
+      text-align: center;
+      padding: 8px;
+      background: #EDF0F5;
+      color: #2B2D42;
+      font-size: 12px;
+      font-weight: 600;
+      border-radius: 4px;
+      margin-bottom: 8px;
+    }
+
+    .similar-card-shop {
+      font-size: 11px;
+      color: #666;
+    }
+
+    .similar-card-shipping {
+      font-size: 11px;
+      color: #666;
+    }
+
+    .similar-card-shipping.free {
+      color: #B85800;
+      font-weight: 600;
+    }
+
+    /* ===================== FOOTER ===================== */
+    .footer {
+      background: #1E1F2E;
+      color: white;
+      padding: 40px 0 20px;
+    }
+
+    .footer-categories { margin-bottom: 28px; }
+
+    .footer-categories > ul {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-categories > ul > li > ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 4px;
+    }
+
+    .footer-category summary {
+      font-family: 'Oswald', sans-serif;
+      text-transform: none;
+      letter-spacing: 0.3px;
+      color: white;
+      font-weight: 700;
+      font-size: 14px;
+      display: block;
+      margin-bottom: 8px;
+      min-height: 18px;
+      list-style: none;
+      cursor: default;
+    }
+
+    .footer-category summary::-webkit-details-marker { display: none; }
+
+    .footer-category details > ul {
+      display: block !important;
+    }
+
+    .footer-sub-category a {
+      color: rgba(255,255,255,0.72);
+      font-size: 13px;
+      text-decoration: none;
+      display: block;
+      padding: 3px 0;
+      line-height: 1.4;
+    }
+
+    .footer-sub-category a:hover { color: white; }
+
+    .footer-search {
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.2);
+      margin-bottom: 8px;
+    }
+
+    .footer-search .search-form { max-width: 600px; }
+
+    .footer-search .search-input {
+      background: white;
+      border: none;
+      color: #333;
+      height: 44px;
+    }
+
+    .footer-search .search-input::placeholder { color: #999; }
+    .footer-search .search-input:focus { outline: none; }
+
+    .footer-search .search-button {
+      background: #B85800;
+      color: white;
+      font-weight: 700;
+      height: 44px;
+    }
+
+    .footer-search .search-button:hover { background: #9A4A00; }
+
+    .footer-nav {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .footer-nav a {
+      color: rgba(255,255,255,0.7);
+      font-size: 13px;
+      text-decoration: none;
+    }
+
+    .footer-nav a:hover { color: white; }
+
+    .footer-legal {
+      color: rgba(255,255,255,0.5);
+      font-size: 12px;
+      margin-top: 12px;
+    }
+
+    /* ===================== MOBILE ===================== */
+    @media (max-width: 768px) {
+      .mobile-product-image {
+        display: block;
+        text-align: center;
+        padding: 12px 16px;
+      }
+
+      .mobile-product-image img {
+        max-width: 160px;
+        height: auto;
+      }
+
+      .product-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .product-sidebar {
+        display: none;
+      }
+
+      .header-search {
+        display: none;
+      }
+
+      .category-menu-toggle span {
+        display: none;
+      }
+
+      .category-menu-list {
+        columns: 1;
+      }
+
+      .offer-promoted-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+      }
+
+      .offer-promoted-content .offer-price-col {
+        grid-column: 1;
+        grid-row: 1;
+        text-align: left;
+      }
+
+      .offer-promoted-content .offer-shop {
+        grid-column: 2;
+        grid-row: 1;
+        text-align: right;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+      }
+
+      .offer-promoted-content .offer-details {
+        grid-column: 1 / -1;
+        grid-row: 2;
+        min-width: 0;
+      }
+
+      .offer {
+        grid-template-columns: 1fr auto;
+        grid-template-rows: auto auto;
+        gap: 10px 12px;
+        padding: 16px 0;
+      }
+
+      .offer .offer-price-col {
+        grid-column: 1;
+        grid-row: 1;
+        text-align: left;
+      }
+
+      .offer .offer-shop {
+        grid-column: 2;
+        grid-row: 1;
+        text-align: right;
+        align-items: flex-end;
+      }
+
+      .offer .offer-details {
+        grid-column: 1;
+        grid-row: 2;
+      }
+
+      .offer .offer-action {
+        grid-column: 2;
+        grid-row: 2;
+        align-self: end;
+      }
+
+      .offer .offer-payment,
+      .offer .offer-shipping-time {
+        display: none;
+      }
+
+      .similar-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+
+      .similar-grid .similar-card {
+        width: 100%;
+        min-width: 0;
+      }
+
+      .similar-grid .similar-card:nth-child(n+3) {
+        display: none;
+      }
+
+      .similar-card-img {
+        height: 160px;
+        width: 100%;
+      }
+
+      .similar-card-body {
+        width: 100%;
+      }
+
+      .similar-card-title {
+        font-size: 13px;
+        -webkit-line-clamp: 2;
+      }
+
+      .footer-categories > ul {
+        grid-template-columns: 1fr;
+      }
+
+      /* Footer accordion on mobile */
+      .footer-category details {
+        border-bottom: 1px solid rgba(255,255,255,0.15);
+      }
+
+      .footer-category details > ul {
+        display: none !important;
+      }
+
+      .footer-category details[open] > ul {
+        display: block !important;
+      }
+
+      .footer-category summary {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        padding: 14px 0;
+        margin-bottom: 0;
+      }
+
+      .footer-category summary::after {
+        content: '\276F';
+        font-size: 14px;
+        color: rgba(255,255,255,0.5);
+        transition: transform 0.2s;
+      }
+
+      .footer-category details[open] summary::after {
+        transform: rotate(90deg);
+      }
+
+      .footer-category details[open] > ul {
+        padding-bottom: 12px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+        gap: 8px;
+      }
+
+      .pros-cons {
+        grid-template-columns: 1fr;
+      }
+
+      .product-toolbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        padding: 10px 0;
+      }
+
+      .product-toolbar__nav {
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+
+      .product-toolbar__nav a {
+        font-size: 13px;
+        padding-bottom: 6px;
+        margin-bottom: -12px;
+      }
+
+      .product-condition-toggle {
+        padding-top: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===================== HEADER ===================== -->
+<div class="header">
+  <div class="header-content container">
+    <a href="prototype.html" class="logo">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 45" aria-label="lamaison-lejardin.fr">
+        <g transform="translate(0,4)">
+          <path fill="white" d="M18 2L2 14v20h12v-10h8v10h12V14L18 2z" opacity="0.9"/>
+          <path fill="white" d="M32 18c0 0-2-1-4 0s-3 4-2 6c-2-1-4 0-5 2" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <ellipse cx="33" cy="15" rx="3" ry="4" fill="white" transform="rotate(-30 33 15)" opacity="0.7"/>
+        </g>
+        <text x="44" y="22" fill="white" font-family="Inter, sans-serif" font-size="18" font-weight="700" letter-spacing="-0.5">lamaison-lejardin<tspan fill="#4A6FA5" font-size="14">.fr</tspan></text>
+        <text x="44" y="38" fill="rgba(255,255,255,0.75)" font-family="Inter, sans-serif" font-size="9" font-weight="400" letter-spacing="0.5">comparateur de prix maison &amp; jardin</text>
+      </svg>
+    </a>
+
+    <div class="header-search">
+      <form class="search-form">
+        <input class="search-input" placeholder="Que recherchez-vous ?" type="text">
+        <button type="submit" class="search-button">Rechercher</button>
+      </form>
+    </div>
+
+    <nav class="header__category-menu">
+      <input type="checkbox" id="cat-menu-toggle" class="category-menu-checkbox">
+      <label class="category-menu-toggle" for="cat-menu-toggle">
+        <span class="category-menu-toggle-icon"></span>
+        <span class="category-menu-toggle-label">Cat&eacute;gories</span>
+      </label>
+      <div class="category-menu-dropdown">
+        <label class="category-menu-close" for="cat-menu-toggle">&times;</label>
+        <ul class="category-menu-list">
+          <li>
+            <span>Outillage</span>
+            <ul>
+              <li><a href="#">Perceuse</a></li>
+              <li><a href="#">Scie circulaire</a></li>
+              <li><a href="#">Ponceuse</a></li>
+              <li><a href="#">Meuleuse</a></li>
+              <li><a href="#">Visseuse</a></li>
+            </ul>
+          </li>
+          <li>
+            <span>Jardin</span>
+            <ul>
+              <li><a href="#">Tondeuse</a></li>
+              <li><a href="#">Taille-haie</a></li>
+              <li><a href="#">Nettoyeur haute pression</a></li>
+              <li><a href="#">Tron&ccedil;onneuse</a></li>
+              <li><a href="#">Salon de jardin</a></li>
+            </ul>
+          </li>
+          <li>
+            <span>Salle de Bain</span>
+            <ul>
+              <li><a href="#">Robinetterie</a></li>
+              <li><a href="#">Meuble vasque</a></li>
+              <li><a href="#">WC</a></li>
+              <li><a href="#">Douche</a></li>
+              <li><a href="#">Baignoire</a></li>
+            </ul>
+          </li>
+          <li>
+            <span>Cuisine</span>
+            <ul>
+              <li><a href="#">Robinet cuisine</a></li>
+              <li><a href="#">&Eacute;vier</a></li>
+              <li><a href="#">&Eacute;lectrom&eacute;nager</a></li>
+              <li><a href="#">Plan de travail</a></li>
+            </ul>
+          </li>
+          <li>
+            <span>D&eacute;coration &amp; Am&eacute;nagement</span>
+            <ul>
+              <li><a href="#">&Eacute;clairage</a></li>
+              <li><a href="#">Peinture</a></li>
+              <li><a href="#">Rev&ecirc;tement de sol</a></li>
+              <li><a href="#">Rangement</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<!-- ===================== BREADCRUMB ===================== -->
+<div class="container">
+  <div class="breadcrumb">
+    <a href="prototype.html">Accueil</a>
+    <span>&rsaquo;</span>
+    <a href="#">Aspirateurs industriels</a>
+    <span>&rsaquo;</span>
+    K&auml;rcher Puzzi 8/1
+  </div>
+</div>
+
+<!-- ===================== PRODUCT TITLE ===================== -->
+<div class="container">
+  <div class="product-title">
+    <h1>K&auml;rcher Puzzi 8/1 7 L Aspirateur sans sac Humide 1200 W Sans sac</h1>
+  </div>
+</div>
+
+<!-- Mobile-only product image (between title and toolbar) -->
+<div class="container mobile-product-image">
+  <img src="https://cdn.prix.net/offer/fr/kaercher-professionnel-injecteur-extracteur-puzzi-8-1-flexible-2-en-1-reservoirs-eau-propre-sale-ren-200t180f75732ede22f2142762962d2c55939ca4ecf3b54.jpg" alt="Kärcher Puzzi 8/1">
+</div>
+
+<!-- ===================== PRODUCT TOOLBAR ===================== -->
+<div class="container">
+  <div class="product-toolbar">
+    <div class="product-toolbar__nav">
+      <a href="#offers" class="active">Offres (20)</a>
+      <a href="#fiche-technique">Fiche technique</a>
+      <a href="#description">Informations sur le produit</a>
+    </div>
+    <div class="product-condition-toggle">
+      <span>Neuf</span>
+      <div class="toggle-switch active"></div>
+      <span style="color:#999;">Occasion</span>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== OFFERS + SIDEBAR ===================== -->
+<div class="container">
+<div class="product-layout">
+
+<!-- LEFT: Offers list -->
+<div class="offers-section" id="offers">
+
+  <!-- Promoted offer -->
+  <div class="offer-promoted">
+    <div class="offer-promoted-label">Publicit&eacute;</div>
+    <div class="offer-promoted-content">
+      <div class="offer-price-col">
+        <div class="offer-price">496,00&nbsp;&euro;</div>
+        <div class="offer-shipping">Livraison &agrave; partir de 16,45&nbsp;&euro;</div>
+      </div>
+      <div class="offer-shop">
+        <img class="shop-logo" src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon">
+        <div class="shop-rating">
+          <div class="rating-bar"><div class="rating-bar-fill" style="width:34%;"></div></div>
+          <span>1,7 (18 150)</span>
+        </div>
+      </div>
+      <div class="offer-details">
+        <div class="offer-title">K&auml;rcher Professionnel Injecteur-Extracteur Puzzi 8/1, Flexible 2-en-1, R&eacute;servoirs Eau Propre/Sale, Rendement Surfacique : 12-18 m&sup2;/h</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Offer 1: alternate.fr — Best total price -->
+  <div class="offer">
+    <div class="offer-shop">
+      <img class="shop-logo" src="https://cdn.freebiesupply.com/logos/large/2x/alternate-logo-png-transparent.png" alt="Alternate" style="object-fit: cover; object-position: center 42%; width: 120px; height: 28px;">
+      <div class="shop-rating">
+        <div class="rating-bar"><div class="rating-bar-fill" style="width:87%;"></div></div>
+        <span>4,3 (1 438)</span>
+      </div>
+    </div>
+    <div class="offer-details">
+      <div class="offer-badges">
+        <span class="badge badge-best-price">&#9733; Prix total le moins cher</span>
+      </div>
+      <div class="offer-title">K&auml;rcher 1.100-240.0, Nettoyeur haute pression</div>
+      <div class="offer-shipping-time">5 jours</div>
+    </div>
+    <div class="offer-payment">
+      <span class="payment-icon">PayPal</span>
+      <span class="payment-icon">Visa</span>
+      <span class="payment-icon">MC</span>
+      <span class="payment-icon">Virement</span>
+    </div>
+    <div class="offer-price-col">
+      <div class="offer-price">465,00&nbsp;&euro;</div>
+      <div class="offer-shipping">Livraison &agrave; partir de 10,98&nbsp;&euro;</div>
+    </div>
+    <div class="offer-action">
+      <a href="#" class="btn-offer">Voir l'offre</a>
+    </div>
+  </div>
+
+  <!-- Offer 2: kamody.fr -->
+  <div class="offer">
+    <div class="offer-shop">
+      <img class="shop-logo" src="https://www.kamody.fr/image/data/logo/logo-kamody-latest.png" alt="Kamody">
+      <div class="shop-rating">
+        <div class="rating-bar"><div class="rating-bar-fill" style="width:79%;"></div></div>
+        <span>4,0 (352)</span>
+      </div>
+    </div>
+    <div class="offer-details">
+      <div class="offer-title">K&auml;rcher Puzzi 8/1 Injecteur-extracteur (1200W) 1.100-240.0</div>
+      <div class="offer-shipping-time">Livraison sous 3 &agrave; 4 jours ouvr&eacute;s</div>
+    </div>
+    <div class="offer-payment">
+      <span class="payment-icon">PayPal</span>
+      <span class="payment-icon">Visa</span>
+      <span class="payment-icon">MC</span>
+      <span class="payment-icon">Virement</span>
+    </div>
+    <div class="offer-price-col">
+      <div class="offer-price">478,97&nbsp;&euro;</div>
+      <div class="offer-shipping">Livraison &agrave; partir de 12,90&nbsp;&euro;</div>
+    </div>
+    <div class="offer-action">
+      <a href="#" class="btn-offer">Voir l'offre</a>
+    </div>
+  </div>
+
+  <!-- Offer 3: Cdiscount Marketplace — Voucher -->
+  <div class="offer">
+    <div class="offer-shop">
+      <img class="shop-logo" src="https://static.cdnlogo.com/logos/c/90/cdiscount.svg" alt="Cdiscount">
+      <div class="shop-rating">
+        <div class="rating-bar"><div class="rating-bar-fill" style="width:78%;"></div></div>
+        <span>3,9 (280 083)</span>
+      </div>
+    </div>
+    <div class="offer-details">
+      <div class="offer-badges">
+        <span class="badge badge-voucher">&#9990; Prix avec bon</span>
+      </div>
+      <div class="offer-title">Injecteur extracteur 1380W Puzzi 8/1 avec accessoires - K&Auml;RCHER - 11002400</div>
+      <div class="offer-shipping-time">3 &agrave; 5 jours</div>
+    </div>
+    <div class="offer-payment">
+      <span class="payment-icon">PayPal</span>
+      <span class="payment-icon">Visa</span>
+      <span class="payment-icon">MC</span>
+    </div>
+    <div class="offer-price-col">
+      <div class="offer-price">496,00&nbsp;&euro;</div>
+      <div class="offer-shipping free">Livraison gratuite</div>
+    </div>
+    <div class="offer-action">
+      <a href="#" class="btn-offer">Voir l'offre</a>
+    </div>
+  </div>
+
+  <!-- Offer 4: Amazon Marketplace -->
+  <div class="offer">
+    <div class="offer-shop">
+      <img class="shop-logo" src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon">
+      <div class="shop-rating">
+        <div class="rating-bar"><div class="rating-bar-fill" style="width:34%;"></div></div>
+        <span>1,7 (18 150)</span>
+      </div>
+    </div>
+    <div class="offer-details">
+      <div class="offer-title">K&auml;rcher Professionnel Injecteur-Extracteur Puzzi 8/1, Flexible 2-en-1, R&eacute;servoirs Eau Propre/Sale</div>
+      <div class="offer-shipping-time">Livraison sous 2 &agrave; 3 jours ouvr&eacute;s</div>
+    </div>
+    <div class="offer-payment">
+      <span class="payment-icon">Pr&eacute;l&egrave;vement</span>
+      <span class="payment-icon">Visa</span>
+      <span class="payment-icon">MC</span>
+    </div>
+    <div class="offer-price-col">
+      <div class="offer-price">496,00&nbsp;&euro;</div>
+      <div class="offer-shipping">Livraison &agrave; partir de 16,45&nbsp;&euro;</div>
+    </div>
+    <div class="offer-action">
+      <a href="#" class="btn-offer">Voir l'offre</a>
+    </div>
+  </div>
+
+  <!-- Offer 5: Amazon Marketplace (other listing) -->
+  <div class="offer">
+    <div class="offer-shop">
+      <img class="shop-logo" src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon">
+      <div class="shop-rating">
+        <div class="rating-bar"><div class="rating-bar-fill" style="width:34%;"></div></div>
+        <span>1,7 (18 150)</span>
+      </div>
+    </div>
+    <div class="offer-details">
+      <div class="offer-title">K&auml;rcher Professionnel Injecteur-Extracteur Puzzi 8/1, Flexible 2-en-1, Rendement Surfacique : 12-18 m&sup2;/h, Suceur Fauteuil</div>
+      <div class="offer-shipping-time">Livraison sous 2 &agrave; 3 jours ouvr&eacute;s</div>
+    </div>
+    <div class="offer-payment">
+      <span class="payment-icon">Pr&eacute;l&egrave;vement</span>
+      <span class="payment-icon">Visa</span>
+      <span class="payment-icon">MC</span>
+    </div>
+    <div class="offer-price-col">
+      <div class="offer-price">499,99&nbsp;&euro;</div>
+      <div class="offer-shipping free">Livraison gratuite</div>
+    </div>
+    <div class="offer-action">
+      <a href="#" class="btn-offer">Voir l'offre</a>
+    </div>
+  </div>
+
+  <!-- Offer 6: Fnac Marketplace -->
+  <div class="offer">
+    <div class="offer-shop">
+      <img class="shop-logo" src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Fnac_Logo.svg" alt="Fnac">
+      <div class="shop-rating">
+        <div class="rating-bar"><div class="rating-bar-fill" style="width:95%;"></div></div>
+        <span>4,7 (273 616)</span>
+      </div>
+    </div>
+    <div class="offer-details">
+      <div class="offer-title">Injecteur-extracteur shampouineuse puzzi 8/1 c | 11002400 - karcher G</div>
+      <div class="offer-shipping-time">Se renseigner aupr&egrave;s du vendeur</div>
+    </div>
+    <div class="offer-payment">
+      <span class="payment-icon">Visa</span>
+      <span class="payment-icon">MC</span>
+    </div>
+    <div class="offer-price-col">
+      <div class="offer-price">508,55&nbsp;&euro;</div>
+      <div class="offer-shipping free">Livraison gratuite</div>
+    </div>
+    <div class="offer-action">
+      <a href="#" class="btn-offer">Voir l'offre</a>
+    </div>
+  </div>
+
+  <!-- Offer 7: Sobrico.com — Voucher -->
+  <div class="offer">
+    <div class="offer-shop">
+      <img class="shop-logo" src="https://res.cloudinary.com/afdb/image/upload/v1627994377/sobrico-com/logo_sb_gris.svg" alt="Sobrico">
+      <div class="shop-rating">
+        <div class="rating-bar"><div class="rating-bar-fill" style="width:88%;"></div></div>
+        <span>4,4 (61 496)</span>
+      </div>
+    </div>
+    <div class="offer-details">
+      <div class="offer-badges">
+        <span class="badge badge-voucher">&#9990; Prix avec bon</span>
+      </div>
+      <div class="offer-title">Injecteur extracteur 1380 W Puzzi 8/1 avec accessoires K&Auml;RCHER 11002400</div>
+      <div class="offer-shipping-time">Livraison sous 2 &agrave; 3 jours ouvr&eacute;s</div>
+    </div>
+    <div class="offer-payment">
+      <span class="payment-icon">PayPal</span>
+      <span class="payment-icon">Visa</span>
+      <span class="payment-icon">MC</span>
+    </div>
+    <div class="offer-price-col">
+      <div class="offer-price">510,84&nbsp;&euro;</div>
+      <div class="offer-shipping free">Livraison gratuite</div>
+    </div>
+    <div class="offer-action">
+      <a href="#" class="btn-offer">Voir l'offre</a>
+    </div>
+  </div>
+
+  <!-- Offer 8: Rakuten -->
+  <div class="offer">
+    <div class="offer-shop">
+      <img class="shop-logo" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 50'%3E%3Ctext x='0' y='38' font-family='Arial,sans-serif' font-size='36' font-weight='bold' fill='%23BF0000'%3ERakuten%3C/text%3E%3C/svg%3E" alt="Rakuten">
+      <div class="shop-rating">
+        <div class="rating-bar"><div class="rating-bar-fill" style="width:90%;"></div></div>
+        <span>4,5 (115 347)</span>
+      </div>
+    </div>
+    <div class="offer-details">
+      <div class="offer-title">Karcher Injecteur extracteur professionnel Puzzi 8/1, nettoyeur tapis, moquettes, textiles d'ameublement</div>
+      <div class="offer-shipping-time">Livraison sous 3 a 5 jours</div>
+    </div>
+    <div class="offer-payment">
+      <span class="payment-icon">PayPal</span>
+      <span class="payment-icon">Virement</span>
+      <span class="payment-icon">Visa</span>
+      <span class="payment-icon">MC</span>
+    </div>
+    <div class="offer-price-col">
+      <div class="offer-price">514,74&nbsp;&euro;</div>
+      <div class="offer-shipping free">Livraison gratuite</div>
+    </div>
+    <div class="offer-action">
+      <a href="#" class="btn-offer">Voir l'offre</a>
+    </div>
+  </div>
+
+  <!-- Pagination -->
+  <ul class="pagination">
+    <li class="active"><span>1</span></li>
+    <li><a href="#">2</a></li>
+    <li><a href="#">3</a></li>
+    <li><a href="#">page suivante &rsaquo;</a></li>
+  </ul>
+</div><!-- /offers-section -->
+
+<!-- RIGHT: Sidebar with product image + best offer -->
+<div class="product-sidebar">
+  <div class="product-stage">
+    <div class="product-stage-image">
+      <img src="https://cdn.prix.net/offer/fr/kaercher-professionnel-injecteur-extracteur-puzzi-8-1-flexible-2-en-1-reservoirs-eau-propre-sale-ren-200t180f75732ede22f2142762962d2c55939ca4ecf3b54.jpg" alt="K&auml;rcher Puzzi 8/1">
+    </div>
+    <div class="product-stage-offer">
+      <h3>Offre La Moins Ch&egrave;re</h3>
+      <div class="best-price">465,00&nbsp;&euro;</div>
+      <div class="best-shipping">5 jours</div>
+      <a href="#" class="btn-best">Voir l'offre</a>
+      <div class="best-shop">alternate.fr</div>
+    </div>
+  </div>
+</div>
+
+</div><!-- /product-layout -->
+</div><!-- /container -->
+
+<!-- ===================== FICHE TECHNIQUE ===================== -->
+<div class="container" id="fiche-technique">
+  <div class="content-box">
+    <h2>Fiche technique</h2>
+
+    <div class="datasheet-group">
+      <h3>Poids et dimensions</h3>
+      <table class="datasheet-table">
+        <tr><td>Poids du paquet</td><td>11,4 kg</td></tr>
+        <tr><td>Poids (sans accessoire)</td><td>8,6 kg</td></tr>
+        <tr><td>Hauteur</td><td>442 mm</td></tr>
+        <tr><td>Profondeur</td><td>524 mm</td></tr>
+        <tr><td>Largeur</td><td>332 mm</td></tr>
+      </table>
+    </div>
+
+    <div class="datasheet-group">
+      <h3>Contenu de l'emballage</h3>
+      <table class="datasheet-table">
+        <tr><td>Suceur plat</td><td>Oui</td></tr>
+        <tr><td>Brosses d'aspiration fournies</td><td>Brosse pour sol rigide</td></tr>
+        <tr><td>Brosse poussi&egrave;res tapisserie incluse</td><td>Oui</td></tr>
+      </table>
+    </div>
+
+    <div class="datasheet-group">
+      <h3>Ergonomie</h3>
+      <table class="datasheet-table">
+        <tr><td>Longueur du c&acirc;ble</td><td>7,5 m</td></tr>
+      </table>
+    </div>
+
+    <div class="datasheet-group">
+      <h3>Design</h3>
+      <table class="datasheet-table">
+        <tr><td>Type de conteneur &agrave; poussi&egrave;re</td><td>Sans sac</td></tr>
+        <tr><td>Type</td><td>Aspirateur sans sac</td></tr>
+        <tr><td>Capacit&eacute; poussi&egrave;re</td><td>7 L</td></tr>
+        <tr><td>Longueur du tuyau</td><td>2,5 m</td></tr>
+        <tr><td>Capacit&eacute; de r&eacute;servoir liquide</td><td>8 L</td></tr>
+        <tr><td>Couleur du produit</td><td>Noir, Gris, Jaune</td></tr>
+        <tr><td>Type de nettoyage</td><td>Humide</td></tr>
+      </table>
+    </div>
+
+    <div class="datasheet-group">
+      <h3>Puissance</h3>
+      <table class="datasheet-table">
+        <tr><td>Tension d'entr&eacute;e AC</td><td>220-240 V</td></tr>
+        <tr><td>Fr&eacute;quence d'entr&eacute;e AC</td><td>50 - 60 Hz</td></tr>
+        <tr><td>Source d'alimentation</td><td>Secteur</td></tr>
+        <tr><td>Puissance d'alimentation max.</td><td>1200 W</td></tr>
+      </table>
+    </div>
+
+    <div class="datasheet-group">
+      <h3>Repr&eacute;sentation / R&eacute;alisation</h3>
+      <table class="datasheet-table">
+        <tr><td>Niveau sonore</td><td>71 dB</td></tr>
+        <tr><td>Surfaces de nettoyage</td><td>Tapis, Sol dur</td></tr>
+        <tr><td>Usage adapt&eacute;</td><td>Professionnel</td></tr>
+        <tr><td>Aspirateur &agrave; air filtrant</td><td>Eau</td></tr>
+        <tr><td>Flux d'air</td><td>71 L/s</td></tr>
+        <tr><td>Aspiration</td><td>27 kPa</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== PRODUCT DESCRIPTION ===================== -->
+<div class="container" id="description">
+  <div class="content-box product-description">
+    <h2>Informations sur le produit</h2>
+
+    <div class="en-bref">
+      <h3>En bref</h3>
+      <ul>
+        <li><strong>Nettoyage performant :</strong> Excellente pression de pulv&eacute;risation et aspiration.</li>
+        <li><strong>Pratique et &eacute;conome :</strong> Maniabilit&eacute; optimale et faible consommation &eacute;nerg&eacute;tique.</li>
+        <li><strong>Robuste et complet :</strong> Design solide avec divers accessoires inclus.</li>
+      </ul>
+    </div>
+
+    <h3>Le compagnon id&eacute;al pour un nettoyage impeccable : le K&auml;rcher Puzzi 8/1</h3>
+    <p>Destin&eacute; &agrave; tous ceux qui recherchent la perfection en mati&egrave;re de propret&eacute;, le K&auml;rcher Puzzi 8/1 est plus qu'un simple aspirateur. Il est con&ccedil;u pour les professionnels, tout en restant accessible aux particuliers d&eacute;sireux d'obtenir des r&eacute;sultats d'un niveau professionnel.</p>
+
+    <h3>Avantages et fonctionnalit&eacute;s du K&auml;rcher Puzzi 8/1</h3>
+    <p><strong>Le K&auml;rcher Puzzi 8/1</strong> est un bijou d'innovation qui offre des performances de nettoyage in&eacute;gal&eacute;es :</p>
+    <ul>
+      <li><strong>Performance de nettoyage optimale :</strong> Gr&acirc;ce &agrave; sa pression de pulv&eacute;risation &eacute;lev&eacute;e et &agrave; sa puissance d'aspiration exceptionnelle, le K&auml;rcher Puzzi 8/1 &eacute;limine efficacement la salet&eacute; incrust&eacute;e.</li>
+      <li><strong>Facilit&eacute; d'utilisation :</strong> Avec son poids l&eacute;ger et sa taille compacte, cet aspirateur est facile &agrave; transporter et &agrave; manoeuvrer.</li>
+      <li><strong>Efficacit&eacute; &eacute;nerg&eacute;tique :</strong> Le K&auml;rcher Puzzi 8/1 consomme moins d'&eacute;nergie sans compromettre ses performances.</li>
+      <li><strong>Accessoires inclus :</strong> Cet aspirateur est livr&eacute; avec un assortiment d'accessoires, y compris une buse de sol, une buse manuelle et un flexible d'aspiration.</li>
+    </ul>
+
+    <h3>Un design fort et fiable</h3>
+    <p>Le K&auml;rcher Puzzi 8/1 n'est pas seulement performant, il est aussi agr&eacute;able &agrave; regarder. Son design robuste et ergonomique est con&ccedil;u pour durer. Ses touches de couleur jaune vif le rendent facile &agrave; rep&eacute;rer, m&ecirc;me dans les endroits sombres. De plus, sa construction solide garantit qu'il peut r&eacute;sister &agrave; un usage intensif.</p>
+
+    <p>En r&eacute;sum&eacute;, le K&auml;rcher Puzzi 8/1 offre une combinaison imbattable de puissance, d'efficacit&eacute; et de fiabilit&eacute;. C'est v&eacute;ritablement l'outil de nettoyage dont vous avez besoin pour des r&eacute;sultats impeccables &agrave; chaque fois.</p>
+
+    <p class="ai-note">Remarque : cet article a &eacute;t&eacute; r&eacute;dig&eacute; &agrave; l'aide de l'AI.</p>
+  </div>
+</div>
+
+<!-- ===================== PROS / CONS ===================== -->
+<div class="container">
+  <div class="content-box">
+    <h2>Points forts et points faibles</h2>
+    <div class="pros-cons">
+      <div class="pros">
+        <h3>Points forts</h3>
+        <ul>
+          <li>Nettoyage optimal m&ecirc;me surfaces difficiles</li>
+          <li>Facilit&eacute; d'utilisation et man&#339;uvrabilit&eacute;</li>
+          <li>Efficacit&eacute; &eacute;nerg&eacute;tique, choix &eacute;cologique</li>
+          <li>Accessoires inclus pour divers besoins</li>
+        </ul>
+      </div>
+      <div class="cons">
+        <h3>Points faibles</h3>
+        <ul>
+          <li>Favorable surtout &agrave; usage intensif</li>
+        </ul>
+      </div>
+    </div>
+    <p class="ai-note">Remarque : cet article a &eacute;t&eacute; r&eacute;dig&eacute; &agrave; l'aide de l'AI.</p>
+  </div>
+</div>
+
+<!-- ===================== SIMILAR PRODUCTS ===================== -->
+<div class="container similar-products">
+  <h2>Produits similaires</h2>
+  <div class="similar-grid">
+
+    <a href="#" class="similar-card">
+      <img class="similar-card-img" src="https://cdn.prix.net/offer/fr/nettoyeur-de-terrasses-en-bois-kaercher-pcl-6-patio-cleaner-nettoyage-en-profondeur-sans-effort-dans-200t1809a9afbc4de05fdc11409082a1e97bd86715e3caf.jpg" alt="K&auml;rcher PCL 6">
+      <div class="similar-card-body">
+        <div class="similar-card-title">K&auml;rcher Home &amp; Garden PCL 6 1.644-020.0 Nettoyeur pour terrasses</div>
+        <div class="similar-card-price">181,99&nbsp;&euro;</div>
+        <div class="similar-card-btn">Comparer 21 prix</div>
+        <div class="similar-card-shop">amazon-marketplace.fr</div>
+        <div class="similar-card-shipping free">Livraison gratuite</div>
+      </div>
+    </a>
+
+    <a href="#" class="similar-card">
+      <img class="similar-card-img" src="https://cdn.prix.net/offer/fr/groupe-electrogene-pgg-8-3-7-kw-400v-karcher-1-042-209-0-200t18099661df1759070b91bfe1e52d0af28a1aaf62769.jpg" alt="K&auml;rcher PGG 8/3">
+      <div class="similar-card-body">
+        <div class="similar-card-title">Groupe &eacute;lectrog&egrave;ne Karcher PGG 8/3 - 7kW triphas&eacute; 400V - Essence 4 temps 25L</div>
+        <div class="similar-card-price">1 227,79&nbsp;&euro;</div>
+        <div class="similar-card-btn">Comparer 6 prix</div>
+        <div class="similar-card-shop">Maxoutil.com</div>
+        <div class="similar-card-shipping">Livraison &agrave; partir de 49,90&nbsp;&euro;</div>
+      </div>
+    </a>
+
+    <a href="#" class="similar-card">
+      <img class="similar-card-img" src="https://cdn.prix.net/offer/fr/kaercher-k-7-smart-control-flex-nettoyeur-haute-pression-200t180707a8f7aa0215075e858f04c4237ca238e212b26.jpg" alt="K&auml;rcher K 7">
+      <div class="similar-card-body">
+        <div class="similar-card-title">K&auml;rcher K 7 Smart Control Flex Nettoyeur haute pression Droit Electrique 600 l/h</div>
+        <div class="similar-card-price">422,00&nbsp;&euro;</div>
+        <div class="similar-card-btn">Comparer 16 prix</div>
+        <div class="similar-card-shop">alternate.fr</div>
+        <div class="similar-card-shipping">Livraison &agrave; partir de 10,98&nbsp;&euro;</div>
+      </div>
+    </a>
+
+    <a href="#" class="similar-card">
+      <img class="similar-card-img" src="https://cdn.prix.net/offer/fr/nettoyeur-haute-pression-kaercher-k2-universel-1-673-000-0-110-bars-360l-h-200t18017e13143d7cec52860298eda516f4158745b2e4b.jpg" alt="K&auml;rcher K2">
+      <div class="similar-card-body">
+        <div class="similar-card-title">Nettoyeur haute pression Karcher K2 universel 1400 W</div>
+        <div class="similar-card-price">69,90&nbsp;&euro;</div>
+        <div class="similar-card-btn">Comparer 16 prix</div>
+        <div class="similar-card-shop">Racetools.fr</div>
+        <div class="similar-card-shipping">Livraison &agrave; partir de 9,90&nbsp;&euro;</div>
+      </div>
+    </a>
+
+    <a href="#" class="similar-card">
+      <img class="similar-card-img" src="https://cdn.prix.net/offer/fr/groupe-electrogene-pgg-6-1-5-kw-230v-karcher-1-042-208-0-200t1804f0980098c1a95ba32d24121ee4ad686a759272c.jpg" alt="K&auml;rcher PGG 6/1">
+      <div class="similar-card-body">
+        <div class="similar-card-title">Groupe electrog&egrave;ne PGG 6/1 5 kW 230V 1.042-208.0 - Karcher</div>
+        <div class="similar-card-price">859,46&nbsp;&euro;</div>
+        <div class="similar-card-btn">Comparer 5 prix</div>
+        <div class="similar-card-shop">Maxoutil.com</div>
+        <div class="similar-card-shipping">Livraison &agrave; partir de 49,90&nbsp;&euro;</div>
+      </div>
+    </a>
+
+  </div>
+</div>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-categories">
+      <ul>
+        <li class="footer-category">
+          <details>
+            <summary>Outillage</summary>
+            <ul>
+              <li class="footer-sub-category"><a href="#">Perceuse</a></li>
+              <li class="footer-sub-category"><a href="#">Visseuse</a></li>
+              <li class="footer-sub-category"><a href="#">Scie circulaire</a></li>
+              <li class="footer-sub-category"><a href="#">Ponceuse</a></li>
+            </ul>
+          </details>
+        </li>
+        <li class="footer-category">
+          <details>
+            <summary>Jardin</summary>
+            <ul>
+              <li class="footer-sub-category"><a href="#">Tondeuse</a></li>
+              <li class="footer-sub-category"><a href="#">Taille-haie</a></li>
+              <li class="footer-sub-category"><a href="#">Nettoyeur HP</a></li>
+              <li class="footer-sub-category"><a href="#">Abri de jardin</a></li>
+            </ul>
+          </details>
+        </li>
+        <li class="footer-category">
+          <details>
+            <summary>Salle de Bain</summary>
+            <ul>
+              <li class="footer-sub-category"><a href="#">Robinetterie</a></li>
+              <li class="footer-sub-category"><a href="#">WC suspendu</a></li>
+              <li class="footer-sub-category"><a href="#">Meuble vasque</a></li>
+              <li class="footer-sub-category"><a href="#">Douche</a></li>
+            </ul>
+          </details>
+        </li>
+        <li class="footer-category">
+          <details>
+            <summary>Mobilier</summary>
+            <ul>
+              <li class="footer-sub-category"><a href="#">Salon de jardin</a></li>
+              <li class="footer-sub-category"><a href="#">Parasol</a></li>
+              <li class="footer-sub-category"><a href="#">Chaise longue</a></li>
+              <li class="footer-sub-category"><a href="#">Table de jardin</a></li>
+            </ul>
+          </details>
+        </li>
+        <li class="footer-category">
+          <details>
+            <summary>Maison</summary>
+            <ul>
+              <li class="footer-sub-category"><a href="#">&Eacute;clairage</a></li>
+              <li class="footer-sub-category"><a href="#">Peinture</a></li>
+              <li class="footer-sub-category"><a href="#">Chauffage</a></li>
+              <li class="footer-sub-category"><a href="#">S&eacute;curit&eacute;</a></li>
+            </ul>
+          </details>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer-search">
+      <p style="color: white; font-size: 16px; font-weight: 600; margin: 0 0 10px 0;">Vous n'avez pas trouv&eacute; ?</p>
+      <form class="search-form">
+        <input class="search-input" placeholder="Que recherchez-vous ?" type="text">
+        <button type="submit" class="search-button">Comparer les prix</button>
+      </form>
+    </div>
+
+    <div class="footer-nav">
+      <a href="#">Mentions l&eacute;gales</a>
+      <a href="#">Confidentialit&eacute;</a>
+      <a href="#">CGV</a>
+      <a href="#">Contact</a>
+      <a href="#">Plan du site</a>
+    </div>
+
+    <div class="footer-legal">
+      &copy; 2026 lamaison-lejardin.fr
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

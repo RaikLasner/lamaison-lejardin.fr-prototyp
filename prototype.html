@@ -26,7 +26,7 @@
     .category-teaser > h3 a,
     .advantage-boxes-item__title,
     .trust-bar-item h3,
-    .footer-category > a,
+    .footer-category summary,
     .footer-search h4 {
       font-family: 'Oswald', sans-serif;
       text-transform: none;
@@ -778,18 +778,24 @@
       margin-top: 4px;
     }
 
-    .footer-category > a {
+    .footer-category summary {
+      font-family: 'Oswald', sans-serif;
+      text-transform: none;
+      letter-spacing: 0.3px;
       color: white;
       font-weight: 700;
       font-size: 14px;
-      text-decoration: none;
       display: block;
       margin-bottom: 8px;
       min-height: 18px;
+      list-style: none;
+      cursor: default;
     }
 
-    .footer-category > a:hover {
-      text-decoration: underline;
+    .footer-category summary::-webkit-details-marker { display: none; }
+
+    .footer-category details > ul {
+      display: block !important;
     }
 
     .footer-sub-category a {
@@ -864,6 +870,344 @@
       color: rgba(255,255,255,0.5);
       font-size: 12px;
       margin-top: 12px;
+    }
+    /* ===================== MOBILE ===================== */
+    @media (max-width: 768px) {
+
+      /* --- Header --- */
+      .category-menu-toggle-label {
+        display: none;
+      }
+
+      .category-menu-list {
+        columns: 1;
+      }
+
+      /* --- Hero: auto height, no fixed height --- */
+      .hero-section {
+        height: auto;
+      }
+
+      .search-with-title {
+        padding: 0 16px 24px;
+        margin-top: auto;
+        justify-content: flex-end;
+      }
+
+      .search-form-wrapper {
+        max-width: 300px;
+        margin: 0 auto;
+      }
+
+      .search-with-title h1 {
+        display: none;
+      }
+
+      .search-input {
+        height: 50px;
+        font-size: 14px;
+        padding: 0 14px;
+        flex: 1;
+        min-width: 0;
+      }
+
+      .search-button {
+        height: 50px;
+        width: 40px;
+        padding: 0;
+        font-size: 0;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .search-button span {
+        display: none;
+      }
+
+      .search-button::before {
+        content: '';
+        display: block;
+        width: 16px;
+        height: 16px;
+        border: 2.5px solid white;
+        border-radius: 50%;
+      }
+
+      .search-button::after {
+        content: '';
+        display: block;
+        width: 2.5px;
+        height: 8px;
+        background: white;
+        transform: rotate(-45deg);
+        margin-left: -3px;
+        margin-top: 6px;
+        border-radius: 1px;
+      }
+
+      /* --- Trust Bar: auto-rotating carousel, 1 item visible --- */
+      .trust-bar {
+        height: 120px;
+        overflow: hidden;
+      }
+
+      .trust-bar .container {
+        overflow: hidden;
+        height: 100%;
+        padding: 0;
+      }
+
+      .trust-bar-body {
+        display: flex;
+        flex-wrap: nowrap;
+        width: 300%;
+        height: 100%;
+        animation: trustbar-scroll 9s infinite;
+      }
+
+      .trust-bar-item {
+        min-width: calc(100% / 3);
+        width: calc(100% / 3);
+        flex-shrink: 0;
+        padding: 12px 20px;
+        flex-direction: column;
+        gap: 4px;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .trust-bar-item + .trust-bar-item {
+        border-left: none;
+      }
+
+      .trust-bar-item .icon {
+        margin: 0 auto 4px;
+      }
+
+      .trust-bar-item .icon svg {
+        width: 32px;
+        height: 32px;
+      }
+
+      .trust-bar-item h3 {
+        font-size: 14px;
+        margin-bottom: 2px;
+      }
+
+      .trust-bar-item-subtitle {
+        display: block;
+        font-size: 12px;
+      }
+
+      @keyframes trustbar-scroll {
+        0%, 28%    { transform: translateX(0); }
+        33%, 61%   { transform: translateX(-33.333%); }
+        66%, 94%   { transform: translateX(-66.666%); }
+        100%       { transform: translateX(0); }
+      }
+
+      /* --- Carousels (brands/shops) --- */
+      .carousel {
+        margin-bottom: 16px;
+      }
+
+      .carousel-title {
+        font-size: 16px;
+        margin-bottom: 8px;
+      }
+
+      .manufacturer-highlights,
+      .shop-highlights {
+        padding: 0;
+      }
+
+      .manufacturer-highlights .carousel-content,
+      .shop-highlights .carousel-content {
+        overflow: hidden;
+      }
+
+      .manufacturer-highlights .carousel-tile,
+      .shop-highlights .carousel-tile {
+        width: 100%;
+        min-width: 100%;
+        height: 60px;
+      }
+
+      .manufacturer-highlights .carousel-tile img,
+      .manufacturer-highlights .carousel-tile svg {
+        max-width: 120px;
+        max-height: 48px;
+      }
+
+      .shop-highlights .carousel-tile-content img {
+        width: 120px;
+        height: 44px;
+      }
+
+      .carousel-nav-btn {
+        display: none;
+      }
+
+      /* --- Main Container tighter --- */
+      .main-container {
+        padding: 20px 0;
+      }
+
+      /* --- Category Teaser: stacked layout --- */
+      .category-teaser {
+        margin-bottom: 28px;
+      }
+
+      .category-teaser > h3 a {
+        font-size: 18px;
+      }
+
+      .category-teaser-row {
+        flex-direction: column;
+      }
+
+      .category-teaser-main-body {
+        flex: none;
+        width: 100%;
+        padding: 10px;
+      }
+
+      .category-teaser-main-body-inner {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      .category-teaser-main-body-image img,
+      .category-teaser-main-body-image > div {
+        width: 100px;
+        height: 100px;
+      }
+
+      .category-teaser-main-body-content {
+        text-align: left;
+        align-items: flex-start;
+      }
+
+      .category-teaser-main-body-content h4 {
+        font-size: 12px;
+        margin-bottom: 4px;
+      }
+
+      .category-teaser-main-body-content-price {
+        font-size: 16px;
+        margin-bottom: 2px;
+      }
+
+      .category-teaser-main-body > .btn {
+        margin-top: 8px;
+        padding: 8px 14px;
+        font-size: 13px;
+      }
+
+      .category-teaser-content {
+        flex-direction: column;
+        flex: none;
+        width: 100%;
+      }
+
+      .category-teaser-content-item {
+        border-top: 1px solid #E0E0E0;
+        padding: 8px 10px;
+        flex-direction: row;
+        gap: 10px;
+        align-items: center;
+      }
+
+      .category-teaser-content-image {
+        flex-shrink: 0;
+        margin-bottom: 0;
+      }
+
+      .category-teaser-content-image img {
+        width: 60px;
+        height: 60px;
+        object-fit: cover;
+        border-radius: 4px;
+      }
+
+      .category-teaser-content-item-header h4 {
+        font-size: 12px;
+        margin-bottom: 2px;
+      }
+
+      .category-teaser-content-item-price {
+        font-size: 14px;
+      }
+
+      .category-teaser-content-item .shipping-cost {
+        margin-bottom: 4px;
+      }
+
+      .category-teaser-content-item .btn {
+        padding: 5px 10px;
+        font-size: 11px;
+        margin-top: 4px;
+      }
+
+      /* --- Advantage Boxes: stacked --- */
+      .advantage-boxes {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        margin-bottom: 24px;
+      }
+
+      /* --- Footer accordion on mobile --- */
+      .footer-categories > ul {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      .footer-category details {
+        border-bottom: 1px solid rgba(255,255,255,0.15);
+      }
+
+      .footer-category details > ul {
+        display: none !important;
+      }
+
+      .footer-category details[open] > ul {
+        display: block !important;
+      }
+
+      .footer-category summary {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        padding: 14px 0;
+        margin-bottom: 0;
+      }
+
+      .footer-category summary::after {
+        content: '\276F';
+        font-size: 14px;
+        color: rgba(255,255,255,0.5);
+        transition: transform 0.2s;
+      }
+
+      .footer-category details[open] summary::after {
+        transform: rotate(90deg);
+      }
+
+      .footer-category details[open] > ul {
+        padding-bottom: 12px;
+      }
+
+      .footer-search .search-input {
+        height: 40px;
+      }
+
+      .footer-search .search-button {
+        height: 40px;
+      }
     }
   </style>
 </head>
@@ -1117,7 +1461,7 @@
           <div class="category-teaser-content-item-shop">amazon.fr</div>
           <div class="category-teaser-content-item-price">129,90 €</div>
           <div class="shipping-cost free">Livraison gratuite</div>
-          <button class="btn">Voir l'offre</button>
+          <a class="btn" href="product.html">Voir l'offre</a>
         </div>
         <div class="category-teaser-content-item">
           <div class="category-teaser-content-image">
@@ -1129,7 +1473,7 @@
           <div class="category-teaser-content-item-shop">leroymerlin.fr</div>
           <div class="category-teaser-content-item-price">269,00 €</div>
           <div class="shipping-cost">Livraison dès 6,90 €</div>
-          <button class="btn">Voir l'offre</button>
+          <a class="btn" href="product.html">Voir l'offre</a>
         </div>
         <div class="category-teaser-content-item">
           <div class="category-teaser-content-image">
@@ -1141,7 +1485,7 @@
           <div class="category-teaser-content-item-shop">bricodepot.fr</div>
           <div class="category-teaser-content-item-price">189,00 €</div>
           <div class="shipping-cost free">Livraison gratuite</div>
-          <button class="btn">Voir l'offre</button>
+          <a class="btn" href="product.html">Voir l'offre</a>
         </div>
       </div>
       </div>
@@ -1176,7 +1520,7 @@
           <div class="category-teaser-content-item-shop">manomano.fr</div>
           <div class="category-teaser-content-item-price">89,90 €</div>
           <div class="shipping-cost free">Livraison gratuite</div>
-          <button class="btn">Voir l'offre</button>
+          <a class="btn" href="product.html">Voir l'offre</a>
         </div>
         <div class="category-teaser-content-item">
           <div class="category-teaser-content-image">
@@ -1188,7 +1532,7 @@
           <div class="category-teaser-content-item-shop">leroymerlin.fr</div>
           <div class="category-teaser-content-item-price">79,00 €</div>
           <div class="shipping-cost">Livraison dès 5,90 €</div>
-          <button class="btn">Voir l'offre</button>
+          <a class="btn" href="product.html">Voir l'offre</a>
         </div>
         <div class="category-teaser-content-item">
           <div class="category-teaser-content-image">
@@ -1200,7 +1544,7 @@
           <div class="category-teaser-content-item-shop">castorama.fr</div>
           <div class="category-teaser-content-item-price">399,00 €</div>
           <div class="shipping-cost free">Livraison gratuite</div>
-          <button class="btn">Voir l'offre</button>
+          <a class="btn" href="product.html">Voir l'offre</a>
         </div>
       </div>
       </div>
@@ -1235,7 +1579,7 @@
           <div class="category-teaser-content-item-shop">manomano.fr</div>
           <div class="category-teaser-content-item-price">899,00 €</div>
           <div class="shipping-cost free">Livraison gratuite</div>
-          <button class="btn">Voir l'offre</button>
+          <a class="btn" href="product.html">Voir l'offre</a>
         </div>
         <div class="category-teaser-content-item">
           <div class="category-teaser-content-image">
@@ -1247,7 +1591,7 @@
           <div class="category-teaser-content-item-shop">bricomarche.com</div>
           <div class="category-teaser-content-item-price">279,00 €</div>
           <div class="shipping-cost">Livraison dès 9,90 €</div>
-          <button class="btn">Voir l'offre</button>
+          <a class="btn" href="product.html">Voir l'offre</a>
         </div>
         <div class="category-teaser-content-item">
           <div class="category-teaser-content-image">
@@ -1259,7 +1603,7 @@
           <div class="category-teaser-content-item-shop">cdiscount.com</div>
           <div class="category-teaser-content-item-price">219,00 €</div>
           <div class="shipping-cost free">Livraison gratuite</div>
-          <button class="btn">Voir l'offre</button>
+          <a class="btn" href="product.html">Voir l'offre</a>
         </div>
       </div>
       </div>
@@ -1317,45 +1661,60 @@
   <div class="container">
     <div class="footer-categories">
       <ul>
-        <li class="footer-category"><a href="#">Outillage</a>
-          <ul>
-            <li class="footer-sub-category"><a href="#">Perceuse</a></li>
-            <li class="footer-sub-category"><a href="#">Visseuse</a></li>
-            <li class="footer-sub-category"><a href="#">Scie circulaire</a></li>
-            <li class="footer-sub-category"><a href="#">Ponceuse</a></li>
-          </ul>
+        <li class="footer-category">
+          <details>
+            <summary>Outillage</summary>
+            <ul>
+              <li class="footer-sub-category"><a href="#">Perceuse</a></li>
+              <li class="footer-sub-category"><a href="#">Visseuse</a></li>
+              <li class="footer-sub-category"><a href="#">Scie circulaire</a></li>
+              <li class="footer-sub-category"><a href="#">Ponceuse</a></li>
+            </ul>
+          </details>
         </li>
-        <li class="footer-category"><a href="#">Jardin</a>
-          <ul>
-            <li class="footer-sub-category"><a href="#">Tondeuse</a></li>
-            <li class="footer-sub-category"><a href="#">Taille-haie</a></li>
-            <li class="footer-sub-category"><a href="#">Nettoyeur HP</a></li>
-            <li class="footer-sub-category"><a href="#">Abri de jardin</a></li>
-          </ul>
+        <li class="footer-category">
+          <details>
+            <summary>Jardin</summary>
+            <ul>
+              <li class="footer-sub-category"><a href="#">Tondeuse</a></li>
+              <li class="footer-sub-category"><a href="#">Taille-haie</a></li>
+              <li class="footer-sub-category"><a href="#">Nettoyeur HP</a></li>
+              <li class="footer-sub-category"><a href="#">Abri de jardin</a></li>
+            </ul>
+          </details>
         </li>
-        <li class="footer-category"><a href="#">Salle de Bain</a>
-          <ul>
-            <li class="footer-sub-category"><a href="#">Robinetterie</a></li>
-            <li class="footer-sub-category"><a href="#">WC suspendu</a></li>
-            <li class="footer-sub-category"><a href="#">Meuble vasque</a></li>
-            <li class="footer-sub-category"><a href="#">Douche</a></li>
-          </ul>
+        <li class="footer-category">
+          <details>
+            <summary>Salle de Bain</summary>
+            <ul>
+              <li class="footer-sub-category"><a href="#">Robinetterie</a></li>
+              <li class="footer-sub-category"><a href="#">WC suspendu</a></li>
+              <li class="footer-sub-category"><a href="#">Meuble vasque</a></li>
+              <li class="footer-sub-category"><a href="#">Douche</a></li>
+            </ul>
+          </details>
         </li>
-        <li class="footer-category"><a href="#">Mobilier</a>
-          <ul>
-            <li class="footer-sub-category"><a href="#">Salon de jardin</a></li>
-            <li class="footer-sub-category"><a href="#">Parasol</a></li>
-            <li class="footer-sub-category"><a href="#">Chaise longue</a></li>
-            <li class="footer-sub-category"><a href="#">Table de jardin</a></li>
-          </ul>
+        <li class="footer-category">
+          <details>
+            <summary>Mobilier</summary>
+            <ul>
+              <li class="footer-sub-category"><a href="#">Salon de jardin</a></li>
+              <li class="footer-sub-category"><a href="#">Parasol</a></li>
+              <li class="footer-sub-category"><a href="#">Chaise longue</a></li>
+              <li class="footer-sub-category"><a href="#">Table de jardin</a></li>
+            </ul>
+          </details>
         </li>
-        <li class="footer-category"><a href="#">Maison</a>
-          <ul>
-            <li class="footer-sub-category"><a href="#">Éclairage</a></li>
-            <li class="footer-sub-category"><a href="#">Peinture</a></li>
-            <li class="footer-sub-category"><a href="#">Chauffage</a></li>
-            <li class="footer-sub-category"><a href="#">Sécurité</a></li>
-          </ul>
+        <li class="footer-category">
+          <details>
+            <summary>Maison</summary>
+            <ul>
+              <li class="footer-sub-category"><a href="#">Éclairage</a></li>
+              <li class="footer-sub-category"><a href="#">Peinture</a></li>
+              <li class="footer-sub-category"><a href="#">Chauffage</a></li>
+              <li class="footer-sub-category"><a href="#">Sécurité</a></li>
+            </ul>
+          </details>
         </li>
       </ul>
     </div>
