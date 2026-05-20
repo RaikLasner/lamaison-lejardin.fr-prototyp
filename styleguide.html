@@ -1,0 +1,1696 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New WL — Styleguide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: #333;
+      background: #f8f9fa;
+      line-height: 1.6;
+    }
+
+    /* Styleguide Layout */
+    .sg-wrapper {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 24px;
+    }
+
+    .sg-header {
+      text-align: center;
+      margin-bottom: 60px;
+      padding-bottom: 40px;
+      border-bottom: 2px solid #E0E0E0;
+    }
+
+    .sg-header h1 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 42px;
+      color: #2B2D42;
+      margin-bottom: 8px;
+      letter-spacing: 0.3px;
+    }
+
+    .sg-header p {
+      font-size: 16px;
+      color: #666;
+    }
+
+    .sg-section {
+      margin-bottom: 60px;
+    }
+
+    .sg-section-title {
+      font-family: 'Oswald', sans-serif;
+      font-size: 28px;
+      color: #2B2D42;
+      margin-bottom: 8px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid #B85800;
+      letter-spacing: 0.3px;
+    }
+
+    .sg-section-desc {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 24px;
+    }
+
+    .sg-subsection {
+      margin-bottom: 36px;
+    }
+
+    .sg-subsection-title {
+      font-family: 'Oswald', sans-serif;
+      font-size: 20px;
+      color: #2B2D42;
+      margin-bottom: 12px;
+      letter-spacing: 0.3px;
+    }
+
+    /* Color Swatches */
+    .sg-colors {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 16px;
+    }
+
+    .sg-color-card {
+      background: white;
+      border: 1px solid #E0E0E0;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .sg-color-swatch {
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .sg-color-info {
+      padding: 12px;
+    }
+
+    .sg-color-name {
+      font-weight: 600;
+      font-size: 13px;
+      margin-bottom: 4px;
+    }
+
+    .sg-color-hex {
+      font-size: 12px;
+      color: #666;
+      font-family: monospace;
+    }
+
+    .sg-color-usage {
+      font-size: 11px;
+      color: #888;
+      margin-top: 4px;
+    }
+
+    /* Typography Samples */
+    .sg-type-sample {
+      background: white;
+      border: 1px solid #E0E0E0;
+      border-radius: 8px;
+      padding: 24px;
+      margin-bottom: 16px;
+    }
+
+    .sg-type-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #999;
+      margin-bottom: 8px;
+    }
+
+    .sg-type-meta {
+      font-size: 12px;
+      color: #666;
+      margin-top: 8px;
+      font-family: monospace;
+      background: #f5f5f5;
+      padding: 6px 10px;
+      border-radius: 4px;
+      display: inline-block;
+    }
+
+    /* Button showcase */
+    .sg-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .sg-button-group {
+      background: white;
+      border: 1px solid #E0E0E0;
+      border-radius: 8px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      min-width: 250px;
+    }
+
+    .sg-button-group.dark-bg {
+      background: #2B2D42;
+    }
+
+    .sg-button-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #999;
+      margin-bottom: 4px;
+    }
+
+    .sg-button-group.dark-bg .sg-button-label {
+      color: rgba(255,255,255,0.6);
+    }
+
+    /* Component Preview */
+    .sg-preview {
+      background: white;
+      border: 1px solid #E0E0E0;
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 16px;
+    }
+
+    .sg-preview-header {
+      background: #f5f5f5;
+      padding: 10px 16px;
+      font-size: 12px;
+      font-weight: 600;
+      color: #666;
+      border-bottom: 1px solid #E0E0E0;
+    }
+
+    .sg-preview-body {
+      padding: 24px;
+    }
+
+    .sg-preview-body.no-pad {
+      padding: 0;
+    }
+
+    .sg-preview-body.dark {
+      background: #2B2D42;
+    }
+
+    /* Code blocks */
+    .sg-code {
+      background: #1E1F2E;
+      color: #e0e0e0;
+      padding: 16px 20px;
+      border-radius: 6px;
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      font-size: 13px;
+      line-height: 1.6;
+      overflow-x: auto;
+      margin-top: 12px;
+    }
+
+    .sg-code .comment { color: #6a9955; }
+    .sg-code .prop { color: #9cdcfe; }
+    .sg-code .value { color: #ce9178; }
+
+    /* Spacing & Sizing */
+    .sg-spacing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 12px;
+    }
+
+    .sg-spacing-item {
+      background: white;
+      border: 1px solid #E0E0E0;
+      border-radius: 6px;
+      padding: 16px;
+      text-align: center;
+    }
+
+    .sg-spacing-item .label {
+      font-size: 12px;
+      color: #666;
+      margin-bottom: 8px;
+    }
+
+    .sg-spacing-item .value {
+      font-family: monospace;
+      font-size: 14px;
+      font-weight: 600;
+      color: #2B2D42;
+    }
+
+    /* Table */
+    .sg-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      border: 1px solid #E0E0E0;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .sg-table th {
+      background: #f5f5f5;
+      text-align: left;
+      padding: 10px 14px;
+      font-size: 12px;
+      font-weight: 600;
+      color: #666;
+      border-bottom: 1px solid #E0E0E0;
+    }
+
+    .sg-table td {
+      padding: 10px 14px;
+      font-size: 13px;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .sg-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .sg-table code {
+      background: #f5f5f5;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-size: 12px;
+    }
+
+    /* Actual design system buttons */
+    .btn-primary {
+      background: #B85800;
+      color: white;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-block;
+      text-align: center;
+      transition: background 0.2s;
+    }
+    .btn-primary:hover { background: #9A4A00; }
+
+    .btn-secondary {
+      background: white;
+      color: #2B2D42;
+      border: 1px solid #2B2D42;
+      padding: 10px 18px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-block;
+      text-align: center;
+      transition: background 0.2s;
+    }
+    .btn-secondary:hover { background: #EDF0F5; }
+
+    .btn-dark {
+      background: #2B2D42;
+      color: white;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-block;
+      text-align: center;
+      transition: background 0.2s;
+    }
+    .btn-dark:hover { background: #1E1F2E; }
+
+    /* Form elements */
+    .sg-input {
+      border: 1px solid #E0E0E0;
+      border-radius: 4px;
+      height: 40px;
+      padding: 0 14px;
+      font-size: 14px;
+      font-family: 'Inter', sans-serif;
+      color: #333;
+      outline: none;
+      width: 100%;
+      max-width: 300px;
+    }
+    .sg-input:focus { border-color: #2B2D42; }
+
+    /* Badge demo */
+    .sg-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 3px;
+    }
+    .sg-badge-orange { background: #FFF3E0; color: #B85800; }
+    .sg-badge-dark { background: #2B2D42; color: white; border-radius: 12px; padding: 3px 10px; font-size: 12px; font-weight: 500; }
+
+    /* Tag demo */
+    .sg-tag {
+      display: inline-block;
+      padding: 5px 12px;
+      border: 1px solid #E0E0E0;
+      border-radius: 20px;
+      font-size: 12px;
+      color: #333;
+      text-decoration: none;
+      margin: 0 4px 6px 0;
+      transition: all 0.15s;
+    }
+    .sg-tag:hover { border-color: #2B2D42; background: #EDF0F5; }
+
+    /* Card demo */
+    .sg-product-card {
+      border: 1px solid #E0E0E0;
+      border-radius: 8px;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      max-width: 220px;
+      transition: box-shadow 0.2s;
+    }
+    .sg-product-card:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.1); }
+
+    .sg-product-card-image {
+      background: #F0F0F0;
+      aspect-ratio: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .sg-product-card-body {
+      padding: 10px 12px 12px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .sg-product-card-title {
+      color: rgb(24, 105, 164);
+      font-size: 13px;
+      font-weight: 500;
+      line-height: 1.4;
+      text-decoration: none;
+      margin-bottom: 8px;
+    }
+
+    .sg-product-card-price {
+      font-size: 18px;
+      font-weight: 700;
+      color: #333;
+      margin-bottom: 8px;
+      text-align: center;
+    }
+
+    .sg-product-card-cta {
+      display: block;
+      background: #B85800;
+      color: white;
+      border: none;
+      border-radius: 4px !important;
+      -webkit-border-radius: 4px;
+      font-weight: 600;
+      font-size: 13px;
+      padding: 10px 8px;
+      text-align: center;
+      text-decoration: none;
+      margin-bottom: 8px;
+      transition: background 0.2s;
+      font-family: 'Inter', sans-serif;
+      cursor: pointer;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+    }
+    .sg-product-card-cta:hover { background: #9A4A00; }
+
+    .sg-product-card-shop { font-size: 12px; color: #888; }
+    .sg-product-card-shipping { font-size: 12px; color: #666; margin-top: 2px; }
+    .sg-product-card-shipping.free { color: #B85800; font-weight: 600; }
+
+    /* Pagination demo */
+    .sg-pagination {
+      display: flex;
+      gap: 4px;
+      list-style: none;
+    }
+    .sg-pagination li a,
+    .sg-pagination li span {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 36px;
+      height: 36px;
+      padding: 0 10px;
+      border: 1px solid #E0E0E0;
+      border-radius: 4px;
+      font-size: 14px;
+      color: #333;
+      text-decoration: none;
+      background: white;
+      transition: all 0.2s;
+    }
+    .sg-pagination li a:hover { background: #EDF0F5; border-color: #2B2D42; }
+    .sg-pagination li.active span { background: #2B2D42; color: white; border-color: #2B2D42; }
+
+    /* Breadcrumb demo */
+    .sg-breadcrumb {
+      font-size: 13px;
+      color: #666;
+    }
+    .sg-breadcrumb a { color: #B85800; text-decoration: none; }
+    .sg-breadcrumb a:hover { text-decoration: underline; }
+    .sg-breadcrumb .sep { color: #999; margin: 0 6px; }
+
+    /* Icon grid */
+    .sg-icon-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      gap: 16px;
+    }
+
+    .sg-icon-item {
+      text-align: center;
+      padding: 20px 12px;
+      background: white;
+      border: 1px solid #E0E0E0;
+      border-radius: 8px;
+    }
+
+    .sg-icon-item svg {
+      width: 36px;
+      height: 36px;
+      stroke: #2B2D42;
+      fill: none;
+      margin-bottom: 8px;
+    }
+
+    .sg-icon-item span {
+      display: block;
+      font-size: 11px;
+      color: #666;
+    }
+
+    /* TOC */
+    .sg-toc {
+      background: white;
+      border: 1px solid #E0E0E0;
+      border-radius: 8px;
+      padding: 24px;
+      margin-bottom: 40px;
+    }
+
+    .sg-toc h2 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 18px;
+      color: #2B2D42;
+      margin-bottom: 12px;
+      letter-spacing: 0.3px;
+    }
+
+    .sg-toc ol {
+      padding-left: 20px;
+    }
+
+    .sg-toc li {
+      margin-bottom: 6px;
+    }
+
+    .sg-toc a {
+      color: #B85800;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .sg-toc a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+<div class="sg-wrapper">
+
+  <!-- HEADER -->
+  <div class="sg-header">
+    <h1>New WL Styleguide</h1>
+    <p>Design-System basierend auf dem Whitelabel "Atelier" (lamaison-lejardin.fr)</p>
+  </div>
+
+  <!-- TABLE OF CONTENTS -->
+  <div class="sg-toc">
+    <h2>Inhaltsverzeichnis</h2>
+    <ol>
+      <li><a href="#colors">Farbschema</a></li>
+      <li><a href="#typography">Typografie</a></li>
+      <li><a href="#buttons">Buttons</a></li>
+      <li><a href="#forms">Formularelemente</a></li>
+      <li><a href="#spacing">Spacing &amp; Layout</a></li>
+      <li><a href="#components">Komponenten</a></li>
+      <li><a href="#icons">Icons</a></li>
+      <li><a href="#pages">Seitentypen</a></li>
+    </ol>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- 1. COLORS -->
+  <!-- ============================================================ -->
+  <div class="sg-section" id="colors">
+    <h2 class="sg-section-title">1. Farbschema</h2>
+    <p class="sg-section-desc">Das Farbschema "Atelier" basiert auf einer Kombination aus warmem Anthrazit und einem CTA-Orange. Alle Kombinationen erfuellen WCAG 2 AA Kontrastvorgaben.</p>
+
+    <div class="sg-subsection">
+      <h3 class="sg-subsection-title">Primaerfarben</h3>
+      <div class="sg-colors">
+        <div class="sg-color-card">
+          <div class="sg-color-swatch" style="background:#2B2D42;">Aa</div>
+          <div class="sg-color-info">
+            <div class="sg-color-name">Primaer (Anthrazit)</div>
+            <div class="sg-color-hex">#2B2D42 &middot; rgb(43, 45, 66)</div>
+            <div class="sg-color-usage">Header, Footer-BG, Trust-Bar, Tags, Outlined-Buttons</div>
+          </div>
+        </div>
+        <div class="sg-color-card">
+          <div class="sg-color-swatch" style="background:#1E1F2E;">Aa</div>
+          <div class="sg-color-info">
+            <div class="sg-color-name">Primaer Dunkel</div>
+            <div class="sg-color-hex">#1E1F2E &middot; rgb(30, 31, 46)</div>
+            <div class="sg-color-usage">Footer-BG, Button-Hover (dunkel)</div>
+          </div>
+        </div>
+        <div class="sg-color-card">
+          <div class="sg-color-swatch" style="background:#B85800;">Aa</div>
+          <div class="sg-color-info">
+            <div class="sg-color-name">CTA (Orange)</div>
+            <div class="sg-color-hex">#B85800 &middot; rgb(184, 88, 0)</div>
+            <div class="sg-color-usage">Such-Buttons, CTA-Buttons, Livraison gratuite, Shop-Namen</div>
+          </div>
+        </div>
+        <div class="sg-color-card">
+          <div class="sg-color-swatch" style="background:#9A4A00;">Aa</div>
+          <div class="sg-color-info">
+            <div class="sg-color-name">CTA Hover</div>
+            <div class="sg-color-hex">#9A4A00 &middot; rgb(154, 74, 0)</div>
+            <div class="sg-color-usage">Hover-Zustand aller Orange-Buttons</div>
+          </div>
+        </div>
+        <div class="sg-color-card">
+          <div class="sg-color-swatch" style="background:#4A6FA5;">Aa</div>
+          <div class="sg-color-info">
+            <div class="sg-color-name">Akzent (Stahlblau)</div>
+            <div class="sg-color-hex">#4A6FA5 &middot; rgb(74, 111, 165)</div>
+            <div class="sg-color-usage">Logo ".fr"-Endung</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sg-subsection">
+      <h3 class="sg-subsection-title">Neutrale Farben</h3>
+      <div class="sg-colors">
+        <div class="sg-color-card">
+          <div class="sg-color-swatch" style="background:#FFFFFF; color: #333; border-bottom: 1px solid #E0E0E0;">Aa</div>
+          <div class="sg-color-info">
+            <div class="sg-color-name">Body Background</div>
+            <div class="sg-color-hex">#FFFFFF</div>
+            <div class="sg-color-usage">Seitenhintergrund</div>
+          </div>
+        </div>
+        <div class="sg-color-card">
+          <div class="sg-color-swatch" style="background:#F0F0F0; color: #666;">Aa</div>
+          <div class="sg-color-info">
+            <div class="sg-color-name">Platzhalter-Grau</div>
+            <div class="sg-color-hex">#F0F0F0</div>
+            <div class="sg-color-usage">Platzhalter-Bilder, neutrale Flaechen</div>
+          </div>
+        </div>
+        <div class="sg-color-card">
+          <div class="sg-color-swatch" style="background:#E8EDF5; color: #333;">Aa</div>
+          <div class="sg-color-info">
+            <div class="sg-color-name">Carousel-Pfeile BG</div>
+            <div class="sg-color-hex">#E8EDF5</div>
+            <div class="sg-color-usage">Carousel-Navigation, Pagination Hover</div>
+          </div>
+        </div>
+        <div class="sg-color-card">
+          <div class="sg-color-swatch" style="background:#EDF0F5; color: #333;">Aa</div>
+          <div class="sg-color-info">
+            <div class="sg-color-name">Outlined-Btn Hover</div>
+            <div class="sg-color-hex">#EDF0F5</div>
+            <div class="sg-color-usage">Hover-BG fuer Outlined-Buttons</div>
+          </div>
+        </div>
+        <div class="sg-color-card">
+          <div class="sg-color-swatch" style="background:#E0E0E0; color: #333;">Aa</div>
+          <div class="sg-color-info">
+            <div class="sg-color-name">Linien / Borders</div>
+            <div class="sg-color-hex">#E0E0E0</div>
+            <div class="sg-color-usage">Trennlinien, Box-Rahmen, Karten</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sg-subsection">
+      <h3 class="sg-subsection-title">Textfarben</h3>
+      <div class="sg-colors">
+        <div class="sg-color-card">
+          <div class="sg-color-swatch" style="background:#333333;">Aa</div>
+          <div class="sg-color-info">
+            <div class="sg-color-name">Text Dunkel</div>
+            <div class="sg-color-hex">#333333</div>
+            <div class="sg-color-usage">Fliesstext, Preise, Headlines body</div>
+          </div>
+        </div>
+        <div class="sg-color-card">
+          <div class="sg-color-swatch" style="background:#666666;">Aa</div>
+          <div class="sg-color-info">
+            <div class="sg-color-name">Text Mittel</div>
+            <div class="sg-color-hex">#666666</div>
+            <div class="sg-color-usage">Versandkosten, sekundaerer Text</div>
+          </div>
+        </div>
+        <div class="sg-color-card">
+          <div class="sg-color-swatch" style="background:#888888;">Aa</div>
+          <div class="sg-color-info">
+            <div class="sg-color-name">Text Hell</div>
+            <div class="sg-color-hex">#888888</div>
+            <div class="sg-color-usage">Shop-Namen (Teaser), tertiarer Text</div>
+          </div>
+        </div>
+        <div class="sg-color-card">
+          <div class="sg-color-swatch" style="background:rgb(24,105,164);">Aa</div>
+          <div class="sg-color-info">
+            <div class="sg-color-name">Produktname (Link)</div>
+            <div class="sg-color-hex">rgb(24, 105, 164)</div>
+            <div class="sg-color-usage">Produkttitel in Teasern &amp; Karten</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sg-subsection">
+      <h3 class="sg-subsection-title">Overlay</h3>
+      <div class="sg-colors">
+        <div class="sg-color-card">
+          <div class="sg-color-swatch" style="background: rgba(43, 45, 66, 0.45);">Overlay</div>
+          <div class="sg-color-info">
+            <div class="sg-color-name">Hero-Overlay</div>
+            <div class="sg-color-hex">rgba(43, 45, 66, 0.45)</div>
+            <div class="sg-color-usage">Dunkles Overlay ueber dem Hero-Bild</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sg-subsection">
+      <h3 class="sg-subsection-title">WCAG 2 AA Kontraste</h3>
+      <table class="sg-table">
+        <thead>
+          <tr>
+            <th>Kombination</th>
+            <th>Kontrast</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Weiss auf <code>#2B2D42</code></td><td>13.7:1</td><td style="color:green;">Passed</td></tr>
+          <tr><td>Weiss auf <code>#1E1F2E</code></td><td>15.4:1</td><td style="color:green;">Passed</td></tr>
+          <tr><td><code>#2B2D42</code> auf Weiss</td><td>13.7:1</td><td style="color:green;">Passed</td></tr>
+          <tr><td>Weiss auf <code>#B85800</code></td><td>4.8:1</td><td style="color:green;">Passed</td></tr>
+          <tr><td><code>#B85800</code> auf Weiss</td><td>4.8:1</td><td style="color:green;">Passed</td></tr>
+          <tr><td>Weiss auf <code>#9A4A00</code></td><td>6.4:1</td><td style="color:green;">Passed</td></tr>
+          <tr><td><code>#4A6FA5</code> auf Weiss</td><td>4.5:1</td><td style="color:orange;">Passed (knapp)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- 2. TYPOGRAPHY -->
+  <!-- ============================================================ -->
+  <div class="sg-section" id="typography">
+    <h2 class="sg-section-title">2. Typografie</h2>
+    <p class="sg-section-desc">Zwei Schriftarten: Oswald fuer Headlines, Inter fuer Fliesstext und UI-Elemente.</p>
+
+    <div class="sg-subsection">
+      <h3 class="sg-subsection-title">Headlines — Oswald</h3>
+
+      <div class="sg-type-sample">
+        <div class="sg-type-label">H1 — Seitentitel (z.B. Hero, Suchergebnisse)</div>
+        <div style="font-family:'Oswald',sans-serif; font-size:28px; font-weight:700; letter-spacing:0.3px; color:#2B2D42;">
+          Trouvez les meilleurs prix pour votre maison
+        </div>
+        <div class="sg-type-meta">font-family: 'Oswald'; font-size: 28px; font-weight: 700;</div>
+      </div>
+
+      <div class="sg-type-sample">
+        <div class="sg-type-label">H1 — Produktseite</div>
+        <div style="font-family:'Oswald',sans-serif; font-size:24px; font-weight:600; letter-spacing:0.3px; color:#2B2D42;">
+          Karcher Puzzi 8/1 Aspirateur sans sac 1200W
+        </div>
+        <div class="sg-type-meta">font-family: 'Oswald'; font-size: 24px; font-weight: 600;</div>
+      </div>
+
+      <div class="sg-type-sample">
+        <div class="sg-type-label">H2 — Kategorie-Titel</div>
+        <div style="font-family:'Oswald',sans-serif; font-size:22px; font-weight:700; letter-spacing:0.3px; color:#2B2D42; text-decoration:underline;">
+          Tronconneuses &amp; Scies
+        </div>
+        <div class="sg-type-meta">font-family: 'Oswald'; font-size: 22px; font-weight: 700; text-decoration: underline;</div>
+      </div>
+
+      <div class="sg-type-sample">
+        <div class="sg-type-label">H3 — Carousel-Titel, Content-Box Titel</div>
+        <div style="font-family:'Oswald',sans-serif; font-size:20px; font-weight:700; letter-spacing:0.3px; color:#333;">
+          Marques populaires
+        </div>
+        <div class="sg-type-meta">font-family: 'Oswald'; font-size: 20px; font-weight: 700;</div>
+      </div>
+
+      <div class="sg-type-sample">
+        <div class="sg-type-label">H3 — Sidebar Filter, Fiche technique</div>
+        <div style="font-family:'Oswald',sans-serif; font-size:14px; font-weight:600; letter-spacing:0.3px; color:#2B2D42;">
+          Trier par
+        </div>
+        <div class="sg-type-meta">font-family: 'Oswald'; font-size: 14px; font-weight: 600;</div>
+      </div>
+    </div>
+
+    <div class="sg-subsection">
+      <h3 class="sg-subsection-title">Fliesstext — Inter</h3>
+
+      <div class="sg-type-sample">
+        <div class="sg-type-label">Body Text</div>
+        <div style="font-family:'Inter',sans-serif; font-size:14px; line-height:1.7; color:#444;">
+          Notre comparateur couvre toutes les categories de l'univers maison et jardin. Parcourez nos milliers de produits et trouvez exactement ce dont vous avez besoin pour votre interieur et votre exterieur.
+        </div>
+        <div class="sg-type-meta">font-family: 'Inter'; font-size: 14px; line-height: 1.7; color: #444;</div>
+      </div>
+
+      <div class="sg-type-sample">
+        <div class="sg-type-label">Preis (gross)</div>
+        <div style="font-family:'Inter',sans-serif; font-size:28px; font-weight:700; color:#333;">
+          465,00&nbsp;&euro;
+        </div>
+        <div class="sg-type-meta">font-size: 28px; font-weight: 700; (Produktseite Best-Price)</div>
+      </div>
+
+      <div class="sg-type-sample">
+        <div class="sg-type-label">Preis (mittel)</div>
+        <div style="font-family:'Inter',sans-serif; font-size:20px; font-weight:700; color:#333;">
+          199,90&nbsp;&euro;
+        </div>
+        <div class="sg-type-meta">font-size: 20px; font-weight: 700; (Offer-Zeile)</div>
+      </div>
+
+      <div class="sg-type-sample">
+        <div class="sg-type-label">Preis (klein / Karte)</div>
+        <div style="font-family:'Inter',sans-serif; font-size:18px; font-weight:700; color:#333;">
+          88,90&nbsp;&euro;
+        </div>
+        <div class="sg-type-meta">font-size: 18px; font-weight: 700; (Produkt-Karte)</div>
+      </div>
+
+      <div class="sg-type-sample">
+        <div class="sg-type-label">Produktname (Link)</div>
+        <div style="font-family:'Inter',sans-serif; font-size:13px; font-weight:500; line-height:1.4; color:rgb(24,105,164);">
+          Makita DUC302Z Tronconneuse d'elagage 36V (sans batterie)
+        </div>
+        <div class="sg-type-meta">font-size: 13px; font-weight: 500; color: rgb(24, 105, 164);</div>
+      </div>
+
+      <div class="sg-type-sample">
+        <div class="sg-type-label">Sekundaertext (Versand, Shop)</div>
+        <div style="font-family:'Inter',sans-serif; font-size:12px; color:#666;">
+          Livraison a partir de 10,98 &euro;
+        </div>
+        <div style="font-family:'Inter',sans-serif; font-size:12px; color:#B85800; font-weight:600; margin-top:4px;">
+          Livraison gratuite
+        </div>
+        <div class="sg-type-meta">font-size: 12px; color: #666 (normal) / #B85800 + font-weight:600 (gratuit)</div>
+      </div>
+    </div>
+
+    <div class="sg-subsection">
+      <h3 class="sg-subsection-title">Google Fonts Einbindung</h3>
+      <div class="sg-code">
+&lt;link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Oswald:wght@400;500;600;700&amp;display=swap" rel="stylesheet"&gt;
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- 3. BUTTONS -->
+  <!-- ============================================================ -->
+  <div class="sg-section" id="buttons">
+    <h2 class="sg-section-title">3. Buttons</h2>
+    <p class="sg-section-desc">Drei Button-Varianten: Primary CTA (Orange), Secondary Outlined (Anthrazit-Rand), Dark (Anthrazit gefuellt).</p>
+
+    <div class="sg-buttons">
+      <div class="sg-button-group">
+        <div class="sg-button-label">Primary CTA</div>
+        <button class="btn-primary">Comparer les prix</button>
+        <button class="btn-primary" style="background:#9A4A00;">Hover-Zustand</button>
+        <div class="sg-code" style="font-size:11px; margin-top:8px;">
+background: #B85800;<br>
+color: white;<br>
+border-radius: 4px;<br>
+font-weight: 600;<br>
+<span class="comment">/* Hover: */</span><br>
+background: #9A4A00;
+        </div>
+      </div>
+
+      <div class="sg-button-group">
+        <div class="sg-button-label">Secondary (Outlined)</div>
+        <button class="btn-secondary">Voir l'offre</button>
+        <button class="btn-secondary" style="background:#EDF0F5;">Hover-Zustand</button>
+        <div class="sg-code" style="font-size:11px; margin-top:8px;">
+background: white;<br>
+color: #2B2D42;<br>
+border: 1px solid #2B2D42;<br>
+<span class="comment">/* Hover: */</span><br>
+background: #EDF0F5;
+        </div>
+      </div>
+
+      <div class="sg-button-group dark-bg">
+        <div class="sg-button-label">Dark / Trust-Bar</div>
+        <button class="btn-dark">Kategorien</button>
+        <button class="btn-dark" style="background:#1E1F2E;">Hover-Zustand</button>
+        <div class="sg-code" style="font-size:11px; margin-top:8px;">
+background: #2B2D42;<br>
+color: white;<br>
+<span class="comment">/* Hover: */</span><br>
+background: #1E1F2E;
+        </div>
+      </div>
+    </div>
+
+    <div class="sg-subsection" style="margin-top:32px;">
+      <h3 class="sg-subsection-title">Button-Groessen</h3>
+      <table class="sg-table">
+        <thead>
+          <tr>
+            <th>Kontext</th>
+            <th>Hoehe</th>
+            <th>Padding</th>
+            <th>Font-Size</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Hero-Suche</td><td>50px</td><td>0 24px</td><td>15px</td></tr>
+          <tr><td>Header-Suche</td><td>40px</td><td>0 18px</td><td>13px</td></tr>
+          <tr><td>Teaser CTA</td><td>auto</td><td>10px 18px</td><td>14px</td></tr>
+          <tr><td>Produktkarte CTA</td><td>auto</td><td>8px</td><td>13px</td></tr>
+          <tr><td>Offer-Zeile "Voir l'offre"</td><td>auto</td><td>10px 20px</td><td>13px</td></tr>
+          <tr><td>Sidebar "Appliquer"</td><td>auto</td><td>8px</td><td>13px</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- 4. FORMS -->
+  <!-- ============================================================ -->
+  <div class="sg-section" id="forms">
+    <h2 class="sg-section-title">4. Formularelemente</h2>
+
+    <div class="sg-subsection">
+      <h3 class="sg-subsection-title">Suchfeld</h3>
+      <div class="sg-preview">
+        <div class="sg-preview-header">Search Form (Hero / Footer)</div>
+        <div class="sg-preview-body">
+          <div style="display:flex; max-width:500px;">
+            <input class="sg-input" style="border-radius:4px 0 0 4px; border-right:none; max-width:none; flex:1; height:50px; font-size:16px;" placeholder="Que recherchez-vous ?">
+            <button class="btn-primary" style="border-radius:0 4px 4px 0; height:50px; padding:0 24px; font-size:15px;">Comparer les prix</button>
+          </div>
+        </div>
+      </div>
+      <div class="sg-code">
+<span class="comment">/* Search Input */</span><br>
+border: none; <span class="comment">/* im Hero */</span> | border: 1px solid #E0E0E0; <span class="comment">/* standalone */</span><br>
+border-radius: 4px 0 0 4px;<br>
+height: 50px; <span class="comment">/* Hero */</span> | 40px; <span class="comment">/* Header/Footer */</span><br>
+font-size: 16px; <span class="comment">/* Hero */</span> | 14px; <span class="comment">/* Header */</span><br>
+font-family: 'Inter', sans-serif;
+      </div>
+    </div>
+
+    <div class="sg-subsection">
+      <h3 class="sg-subsection-title">Preis-Filter Input</h3>
+      <div class="sg-preview">
+        <div class="sg-preview-header">Price Range Inputs</div>
+        <div class="sg-preview-body">
+          <div style="display:flex; gap:8px; align-items:center; max-width:250px;">
+            <input class="sg-input" style="max-width:none; flex:1; height:34px; font-size:13px;" placeholder="de">
+            <span style="color:#999; font-size:13px;">&ndash;</span>
+            <input class="sg-input" style="max-width:none; flex:1; height:34px; font-size:13px;" placeholder="a">
+            <span style="color:#999; font-size:13px;">&euro;</span>
+          </div>
+          <button class="btn-primary" style="margin-top:8px; padding:8px 16px; font-size:13px; width:100%; max-width:250px;">Appliquer</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="sg-subsection">
+      <h3 class="sg-subsection-title">Checkbox (Filter)</h3>
+      <div class="sg-preview">
+        <div class="sg-preview-header">Custom Checkbox</div>
+        <div class="sg-preview-body">
+          <label style="display:flex; align-items:center; gap:8px; cursor:pointer; font-size:13px; margin-bottom:8px;">
+            <input type="checkbox" style="appearance:none; -webkit-appearance:none; width:16px; height:16px; border:1px solid #CCC; border-radius:3px; cursor:pointer; flex-shrink:0;">
+            Stihl
+          </label>
+          <label style="display:flex; align-items:center; gap:8px; cursor:pointer; font-size:13px;">
+            <span style="width:16px; height:16px; background:#2B2D42; border-radius:3px; display:inline-flex; align-items:center; justify-content:center; color:white; font-size:11px; flex-shrink:0;">&#10003;</span>
+            Makita (checked)
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div class="sg-subsection">
+      <h3 class="sg-subsection-title">Toggle Switch</h3>
+      <div class="sg-preview">
+        <div class="sg-preview-header">Condition Toggle (Neuf / Occasion)</div>
+        <div class="sg-preview-body">
+          <div style="display:flex; align-items:center; gap:8px; font-size:13px; color:#666;">
+            <span>Neuf</span>
+            <div style="position:relative; width:44px; height:24px; background:#B85800; border-radius:12px;">
+              <div style="position:absolute; top:2px; left:22px; width:20px; height:20px; background:white; border-radius:50%;"></div>
+            </div>
+            <span style="color:#999;">Occasion</span>
+          </div>
+        </div>
+      </div>
+      <div class="sg-code">
+<span class="comment">/* Active state */</span> background: #B85800;<br>
+<span class="comment">/* Inactive state */</span> background: #ccc;
+      </div>
+    </div>
+
+    <div class="sg-subsection">
+      <h3 class="sg-subsection-title">Condition Buttons (Sidebar)</h3>
+      <div class="sg-preview">
+        <div class="sg-preview-header">Condition Toggle Buttons</div>
+        <div class="sg-preview-body">
+          <div style="display:flex; gap:6px;">
+            <button style="flex:1; padding:8px 10px; border:1px solid #E0E0E0; border-radius:4px; font-size:12px; text-align:center; cursor:pointer; background:white; color:#333; font-family:'Inter',sans-serif; font-weight:500;">Tous</button>
+            <button style="flex:1; padding:8px 10px; border:1px solid #2B2D42; border-radius:4px; font-size:12px; text-align:center; cursor:pointer; background:#2B2D42; color:white; font-family:'Inter',sans-serif; font-weight:500;">Neuf</button>
+            <button style="flex:1; padding:8px 10px; border:1px solid #E0E0E0; border-radius:4px; font-size:12px; text-align:center; cursor:pointer; background:white; color:#333; font-family:'Inter',sans-serif; font-weight:500;">Occasion</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- 5. SPACING & LAYOUT -->
+  <!-- ============================================================ -->
+  <div class="sg-section" id="spacing">
+    <h2 class="sg-section-title">5. Spacing &amp; Layout</h2>
+
+    <div class="sg-subsection">
+      <h3 class="sg-subsection-title">Container</h3>
+      <table class="sg-table">
+        <thead>
+          <tr><th>Kontext</th><th>Max-Width</th><th>Padding</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Homepage / Produktseite</td><td><code>1200px</code></td><td><code>0 16px</code></td></tr>
+          <tr><td>Suchergebnisse</td><td><code>1280px</code></td><td><code>0 16px</code></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="sg-subsection">
+      <h3 class="sg-subsection-title">Seitenstruktur</h3>
+      <table class="sg-table">
+        <thead>
+          <tr><th>Seite</th><th>Layout</th><th>Details</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Homepage</td><td>Single Column</td><td>Hero (564px) + Content</td></tr>
+          <tr><td>Suchergebnisse</td><td>Sidebar + Content</td><td><code>grid: 250px 1fr</code>, Gap: 24px</td></tr>
+          <tr><td>Produktseite</td><td>Content + Sidebar</td><td><code>grid: 1fr 300px</code>, Gap: 24px</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="sg-subsection">
+      <h3 class="sg-subsection-title">Wichtige Abstande</h3>
+      <div class="sg-spacing-grid">
+        <div class="sg-spacing-item">
+          <div class="label">Hero Hoehe</div>
+          <div class="value">564px</div>
+        </div>
+        <div class="sg-spacing-item">
+          <div class="label">Hero Mobile</div>
+          <div class="value">360px</div>
+        </div>
+        <div class="sg-spacing-item">
+          <div class="label">Trust-Bar Hoehe</div>
+          <div class="value">140px</div>
+        </div>
+        <div class="sg-spacing-item">
+          <div class="label">Header Padding</div>
+          <div class="value">14px 0</div>
+        </div>
+        <div class="sg-spacing-item">
+          <div class="label">Section Margin</div>
+          <div class="value">36-44px</div>
+        </div>
+        <div class="sg-spacing-item">
+          <div class="label">Card Border-Radius</div>
+          <div class="value">8px</div>
+        </div>
+        <div class="sg-spacing-item">
+          <div class="label">Button Border-Radius</div>
+          <div class="value">4px</div>
+        </div>
+        <div class="sg-spacing-item">
+          <div class="label">Tag Border-Radius</div>
+          <div class="value">20px</div>
+        </div>
+        <div class="sg-spacing-item">
+          <div class="label">Badge Border-Radius</div>
+          <div class="value">3px / 12px</div>
+        </div>
+        <div class="sg-spacing-item">
+          <div class="label">Product Grid Gap</div>
+          <div class="value">16px</div>
+        </div>
+        <div class="sg-spacing-item">
+          <div class="label">Grid Columns (Desktop)</div>
+          <div class="value">5</div>
+        </div>
+        <div class="sg-spacing-item">
+          <div class="label">Grid Columns (Tablet)</div>
+          <div class="value">3</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sg-subsection">
+      <h3 class="sg-subsection-title">Breakpoints</h3>
+      <table class="sg-table">
+        <thead>
+          <tr><th>Breakpoint</th><th>Wert</th><th>Aenderungen</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Desktop</td><td><code>> 1024px</code></td><td>Volle Darstellung, 5-Spalten Grid</td></tr>
+          <tr><td>Tablet</td><td><code><= 1024px</code></td><td>3-Spalten Grid, schmale Sidebar (220px)</td></tr>
+          <tr><td>Mobile</td><td><code><= 768px</code></td><td>1-Spalten Layout, Sidebar als Overlay, 2-Spalten Grid</td></tr>
+          <tr><td>Small Mobile</td><td><code><= 480px</code></td><td>Kompaktere Karten, kleinere Schriften</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- 6. COMPONENTS -->
+  <!-- ============================================================ -->
+  <div class="sg-section" id="components">
+    <h2 class="sg-section-title">6. Komponenten</h2>
+
+    <!-- Breadcrumb -->
+    <div class="sg-subsection">
+      <h3 class="sg-subsection-title">Breadcrumb</h3>
+      <div class="sg-preview">
+        <div class="sg-preview-header">Breadcrumb Navigation</div>
+        <div class="sg-preview-body">
+          <div class="sg-breadcrumb">
+            <a href="#">Accueil</a>
+            <span class="sep">&rsaquo;</span>
+            <a href="#">Maison &amp; Jardin</a>
+            <span class="sep">&rsaquo;</span>
+            <a href="#">Outillage</a>
+            <span class="sep">&rsaquo;</span>
+            Tronconneuses
+          </div>
+        </div>
+      </div>
+      <div class="sg-code">
+font-size: 13px; color: #666;<br>
+<span class="comment">/* Links: */</span> color: #B85800; text-decoration: none;<br>
+<span class="comment">/* Separator: */</span> color: #999; margin: 0 6px;
+      </div>
+    </div>
+
+    <!-- Product Card -->
+    <div class="sg-subsection">
+      <h3 class="sg-subsection-title">Produkt-Karte</h3>
+      <div class="sg-preview">
+        <div class="sg-preview-header">Product Card (Suchergebnisse &amp; Aehnliche Produkte)</div>
+        <div class="sg-preview-body">
+          <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(180px, 200px)); gap:16px;">
+
+            <!-- Card 1 -->
+            <div style="border:1px solid #E0E0E0; border-radius:8px; overflow:hidden; background:#fff; display:flex; flex-direction:column;">
+              <div style="background:#F0F0F0; aspect-ratio:1; display:flex; align-items:center; justify-content:center;">
+                <svg viewBox="0 0 48 48" style="width:48px;height:48px;opacity:0.25;" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="6" width="36" height="36" rx="3" fill="#bbb" stroke="none"/><circle cx="16" cy="16" r="4" fill="#999"/><path d="M42 32L30 20 6 42" fill="none" stroke="#999" stroke-width="2.5"/></svg>
+              </div>
+              <div style="padding:10px 12px 12px; display:flex; flex-direction:column; flex:1;">
+                <div style="color:rgb(24,105,164); font-size:13px; font-weight:500; line-height:1.4; margin-bottom:8px; display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden;">Makita DUC302Z Tronconneuse d'elagage 36V (sans batterie)</div>
+                <div style="font-size:18px; font-weight:700; color:#333; margin-bottom:8px; text-align:center; margin-top:auto;">199,90&nbsp;&euro;</div>
+                <div style="display:block; background:#B85800; color:white; border:none; border-radius:4px; font-weight:600; font-size:13px; padding:10px 8px; text-align:center; margin-bottom:8px; font-family:'Inter',sans-serif;">Comparer 9 prix</div>
+                <div style="font-size:12px; color:#888;">ManoMano</div>
+                <div style="font-size:12px; color:#B85800; font-weight:600; margin-top:2px;">Livraison gratuite</div>
+              </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div style="border:1px solid #E0E0E0; border-radius:8px; overflow:hidden; background:#fff; display:flex; flex-direction:column;">
+              <div style="background:#F0F0F0; aspect-ratio:1; display:flex; align-items:center; justify-content:center;">
+                <svg viewBox="0 0 48 48" style="width:48px;height:48px;opacity:0.25;" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="6" width="36" height="36" rx="3" fill="#bbb" stroke="none"/><circle cx="16" cy="16" r="4" fill="#999"/><path d="M42 32L30 20 6 42" fill="none" stroke="#999" stroke-width="2.5"/></svg>
+              </div>
+              <div style="padding:10px 12px 12px; display:flex; flex-direction:column; flex:1;">
+                <div style="color:rgb(24,105,164); font-size:13px; font-weight:500; line-height:1.4; margin-bottom:8px; display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden;">Stihl MS 162 Tronconneuse thermique 35 cm</div>
+                <div style="font-size:18px; font-weight:700; color:#333; margin-bottom:8px; text-align:center; margin-top:auto;">201,00&nbsp;&euro;</div>
+                <div style="display:block; background:#B85800; color:white; border:none; border-radius:4px; font-weight:600; font-size:13px; padding:10px 8px; text-align:center; margin-bottom:8px; font-family:'Inter',sans-serif;">Comparer 3 prix</div>
+                <div style="font-size:12px; color:#888;">Amazon</div>
+                <div style="font-size:12px; color:#666; margin-top:2px;">21,90&nbsp;&euro; livraison</div>
+              </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div style="border:1px solid #E0E0E0; border-radius:8px; overflow:hidden; background:#fff; display:flex; flex-direction:column;">
+              <div style="background:#F0F0F0; aspect-ratio:1; display:flex; align-items:center; justify-content:center;">
+                <svg viewBox="0 0 48 48" style="width:48px;height:48px;opacity:0.25;" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="6" width="36" height="36" rx="3" fill="#bbb" stroke="none"/><circle cx="16" cy="16" r="4" fill="#999"/><path d="M42 32L30 20 6 42" fill="none" stroke="#999" stroke-width="2.5"/></svg>
+              </div>
+              <div style="padding:10px 12px 12px; display:flex; flex-direction:column; flex:1;">
+                <div style="color:rgb(24,105,164); font-size:13px; font-weight:500; line-height:1.4; margin-bottom:8px; display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden;">Bosch UniversalChain 35 Tronconneuse electrique 1800W</div>
+                <div style="font-size:18px; font-weight:700; color:#333; margin-bottom:8px; text-align:center; margin-top:auto;">109,99&nbsp;&euro;</div>
+                <div style="display:block; background:#B85800; color:white; border:none; border-radius:4px; font-weight:600; font-size:13px; padding:10px 8px; text-align:center; margin-bottom:8px; font-family:'Inter',sans-serif;">Comparer 12 prix</div>
+                <div style="font-size:12px; color:#888;">Leroy Merlin</div>
+                <div style="font-size:12px; color:#666; margin-top:2px;">5,90&nbsp;&euro; livraison</div>
+              </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div style="border:1px solid #E0E0E0; border-radius:8px; overflow:hidden; background:#fff; display:flex; flex-direction:column;">
+              <div style="background:#F0F0F0; aspect-ratio:1; display:flex; align-items:center; justify-content:center;">
+                <svg viewBox="0 0 48 48" style="width:48px;height:48px;opacity:0.25;" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="6" width="36" height="36" rx="3" fill="#bbb" stroke="none"/><circle cx="16" cy="16" r="4" fill="#999"/><path d="M42 32L30 20 6 42" fill="none" stroke="#999" stroke-width="2.5"/></svg>
+              </div>
+              <div style="padding:10px 12px 12px; display:flex; flex-direction:column; flex:1;">
+                <div style="color:rgb(24,105,164); font-size:13px; font-weight:500; line-height:1.4; margin-bottom:8px; display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden;">VEVOR Tronconneuse a Essence 508 mm 2-temps 58 cc</div>
+                <div style="font-size:18px; font-weight:700; color:#333; margin-bottom:8px; text-align:center; margin-top:auto;">93,09&nbsp;&euro;</div>
+                <div style="display:block; background:#B85800; color:white; border:none; border-radius:4px; font-weight:600; font-size:13px; padding:10px 8px; text-align:center; margin-bottom:8px; font-family:'Inter',sans-serif;">Comparer 3 prix</div>
+                <div style="font-size:12px; color:#888;">vevor.fr</div>
+                <div style="font-size:12px; color:#B85800; font-weight:600; margin-top:2px;">Livraison gratuite</div>
+              </div>
+            </div>
+
+            <!-- Card 5 -->
+            <div style="border:1px solid #E0E0E0; border-radius:8px; overflow:hidden; background:#fff; display:flex; flex-direction:column;">
+              <div style="background:#F0F0F0; aspect-ratio:1; display:flex; align-items:center; justify-content:center;">
+                <svg viewBox="0 0 48 48" style="width:48px;height:48px;opacity:0.25;" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="6" width="36" height="36" rx="3" fill="#bbb" stroke="none"/><circle cx="16" cy="16" r="4" fill="#999"/><path d="M42 32L30 20 6 42" fill="none" stroke="#999" stroke-width="2.5"/></svg>
+              </div>
+              <div style="padding:10px 12px 12px; display:flex; flex-direction:column; flex:1;">
+                <div style="color:rgb(24,105,164); font-size:13px; font-weight:500; line-height:1.4; margin-bottom:8px; display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden;">Husqvarna 135 Mark II Tronconneuse thermique 36 cm</div>
+                <div style="font-size:18px; font-weight:700; color:#333; margin-bottom:8px; text-align:center; margin-top:auto;">289,00&nbsp;&euro;</div>
+                <div style="display:block; background:#B85800; color:white; border:none; border-radius:4px; font-weight:600; font-size:13px; padding:10px 8px; text-align:center; margin-bottom:8px; font-family:'Inter',sans-serif;">Comparer 6 prix</div>
+                <div style="font-size:12px; color:#888;">Cdiscount</div>
+                <div style="font-size:12px; color:#666; margin-top:2px;">14,99&nbsp;&euro; livraison</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sg-code">
+<span class="comment">/* Card Container: */</span><br>
+border: 1px solid #E0E0E0;<br>
+border-radius: 8px;<br>
+overflow: hidden;<br><br>
+<span class="comment">/* Image Placeholder: */</span><br>
+background: #F0F0F0;<br>
+aspect-ratio: 1;<br><br>
+<span class="comment">/* Titel (Link): */</span><br>
+color: rgb(24, 105, 164);<br>
+font-size: 13px;<br>
+font-weight: 500;<br>
+-webkit-line-clamp: 3;<br><br>
+<span class="comment">/* Preis: */</span><br>
+font-size: 18px;<br>
+font-weight: 700;<br>
+text-align: center;<br><br>
+<span class="comment">/* CTA Button: */</span><br>
+background: #B85800;<br>
+color: white;<br>
+border: none;<br>
+border-radius: 4px; <span class="comment">/* WICHTIG: nicht rund! */</span><br>
+font-weight: 600;<br>
+font-size: 13px;<br>
+padding: 10px 8px;<br><br>
+<span class="comment">/* Card Hover: */</span><br>
+box-shadow: 0 2px 12px rgba(0,0,0,0.1);<br><br>
+<span class="comment">/* Grid (5 Spalten Desktop): */</span><br>
+display: grid;<br>
+grid-template-columns: repeat(5, 1fr);<br>
+gap: 16px;
+      </div>
+    </div>
+
+    <!-- Badges & Tags -->
+    <div class="sg-subsection">
+      <h3 class="sg-subsection-title">Badges &amp; Tags</h3>
+      <div class="sg-preview">
+        <div class="sg-preview-header">Badges (Angebote) &amp; Tags (Kategorien, Suche)</div>
+        <div class="sg-preview-body">
+          <div style="margin-bottom:16px;">
+            <span class="sg-badge sg-badge-orange" style="margin-right:8px;">&#9733; Prix total le moins cher</span>
+            <span class="sg-badge sg-badge-orange">&#9990; Prix avec bon</span>
+          </div>
+          <div style="margin-bottom:16px;">
+            <span class="sg-badge sg-badge-dark">#meilleurprix</span>
+            <span class="sg-badge sg-badge-dark" style="margin-left:4px;">#maisonetjardin</span>
+          </div>
+          <div>
+            <a href="#" class="sg-tag">Tronconneuse electrique</a>
+            <a href="#" class="sg-tag">Tronconneuse thermique</a>
+            <a href="#" class="sg-tag">Tronconneuse sans fil</a>
+          </div>
+        </div>
+      </div>
+      <div class="sg-code">
+<span class="comment">/* Offer Badge: */</span> background: #FFF3E0; color: #B85800; border-radius: 3px; padding: 3px 8px;<br>
+<span class="comment">/* Advantage Tag: */</span> background: #2B2D42; color: white; border-radius: 12px; padding: 3px 10px;<br>
+<span class="comment">/* Search Tag: */</span> border: 1px solid #E0E0E0; border-radius: 20px; padding: 5px 12px;<br>
+<span class="comment">/* Tag Hover: */</span> border-color: #2B2D42; background: #EDF0F5;
+      </div>
+    </div>
+
+    <!-- Pagination -->
+    <div class="sg-subsection">
+      <h3 class="sg-subsection-title">Pagination</h3>
+      <div class="sg-preview">
+        <div class="sg-preview-header">Seitennavigation</div>
+        <div class="sg-preview-body">
+          <ul class="sg-pagination">
+            <li class="active"><span>1</span></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li><a href="#">...</a></li>
+            <li><a href="#">42</a></li>
+            <li><a href="#" style="padding:0 14px; font-size:13px;">page suivante &rsaquo;</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="sg-code">
+min-width: 36px; height: 36px; border: 1px solid #E0E0E0; border-radius: 4px;<br>
+<span class="comment">/* Active: */</span> background: #2B2D42; color: white; border-color: #2B2D42;<br>
+<span class="comment">/* Hover: */</span> background: #EDF0F5; border-color: #2B2D42;
+      </div>
+    </div>
+
+    <!-- Rating Bar -->
+    <div class="sg-subsection">
+      <h3 class="sg-subsection-title">Rating Bar (Shop-Bewertung)</h3>
+      <div class="sg-preview">
+        <div class="sg-preview-header">Shop Rating (Produktseite Offers)</div>
+        <div class="sg-preview-body">
+          <div style="display:flex; align-items:center; gap:8px;">
+            <div style="width:60px; height:6px; background:#E0E0E0; border-radius:3px; overflow:hidden;">
+              <div style="height:100%; width:87%; background:#B85800; border-radius:3px;"></div>
+            </div>
+            <span style="font-size:12px; color:#666;">4,3 (1 438)</span>
+          </div>
+          <div style="display:flex; align-items:center; gap:8px; margin-top:8px;">
+            <div style="width:60px; height:6px; background:#E0E0E0; border-radius:3px; overflow:hidden;">
+              <div style="height:100%; width:34%; background:#B85800; border-radius:3px;"></div>
+            </div>
+            <span style="font-size:12px; color:#666;">1,7 (18 150)</span>
+          </div>
+        </div>
+      </div>
+      <div class="sg-code">
+<span class="comment">/* Bar BG: */</span> width: 60px; height: 6px; background: #E0E0E0; border-radius: 3px;<br>
+<span class="comment">/* Bar Fill: */</span> background: #B85800;
+      </div>
+    </div>
+
+    <!-- Payment Icons -->
+    <div class="sg-subsection">
+      <h3 class="sg-subsection-title">Payment Icons</h3>
+      <div class="sg-preview">
+        <div class="sg-preview-header">Zahlungsmethoden (Offer-Zeile)</div>
+        <div class="sg-preview-body">
+          <div style="display:flex; gap:4px; flex-wrap:wrap;">
+            <span style="display:inline-flex; align-items:center; padding:2px 6px; border:1px solid #E0E0E0; border-radius:3px; font-size:10px; color:#666; background:#FAFAFA;">PayPal</span>
+            <span style="display:inline-flex; align-items:center; padding:2px 6px; border:1px solid #E0E0E0; border-radius:3px; font-size:10px; color:#666; background:#FAFAFA;">Visa</span>
+            <span style="display:inline-flex; align-items:center; padding:2px 6px; border:1px solid #E0E0E0; border-radius:3px; font-size:10px; color:#666; background:#FAFAFA;">MC</span>
+            <span style="display:inline-flex; align-items:center; padding:2px 6px; border:1px solid #E0E0E0; border-radius:3px; font-size:10px; color:#666; background:#FAFAFA;">Virement</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ Accordion -->
+    <div class="sg-subsection">
+      <h3 class="sg-subsection-title">FAQ Accordion</h3>
+      <div class="sg-preview">
+        <div class="sg-preview-header">FAQ Section (Suchergebnisse)</div>
+        <div class="sg-preview-body">
+          <div style="border:1px solid #E0E0E0; border-radius:8px; padding:24px; background:white;">
+            <h2 style="font-family:'Oswald',sans-serif; font-size:20px; color:#2B2D42; margin-bottom:16px;">Questions frequentes</h2>
+            <details style="border-bottom:1px solid #E0E0E0;">
+              <summary style="padding:14px 0; font-size:15px; font-weight:600; color:#2B2D42; cursor:pointer; list-style:none; display:flex; justify-content:space-between;">
+                Comment choisir la bonne tronconneuse ?
+                <span style="color:#999;">+</span>
+              </summary>
+              <div style="padding:0 0 14px; font-size:14px; line-height:1.7; color:#444;">
+                Le choix depend de l'utilisation prevue. Pour des travaux legers, une tronconneuse electrique suffit...
+              </div>
+            </details>
+            <details style="border-bottom:none;">
+              <summary style="padding:14px 0; font-size:15px; font-weight:600; color:#2B2D42; cursor:pointer; list-style:none; display:flex; justify-content:space-between;">
+                Quelles sont les meilleures marques ?
+                <span style="color:#999;">+</span>
+              </summary>
+            </details>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Datasheet Table -->
+    <div class="sg-subsection">
+      <h3 class="sg-subsection-title">Fiche Technique (Datenblatt)</h3>
+      <div class="sg-preview">
+        <div class="sg-preview-header">Technische Spezifikationen</div>
+        <div class="sg-preview-body">
+          <h3 style="font-family:'Oswald',sans-serif; font-size:15px; color:#2B2D42; margin-bottom:8px; padding-bottom:6px; border-bottom:1px solid #E0E0E0;">Poids et dimensions</h3>
+          <table style="width:100%; border-collapse:collapse; max-width:500px;">
+            <tr><td style="padding:8px 12px; font-size:13px; color:#666; width:40%; border-bottom:1px solid #F0F0F0;">Poids</td><td style="padding:8px 12px; font-size:13px; font-weight:500; border-bottom:1px solid #F0F0F0;">8,6 kg</td></tr>
+            <tr style="background:#F8F8F8;"><td style="padding:8px 12px; font-size:13px; color:#666; border-bottom:1px solid #F0F0F0;">Hauteur</td><td style="padding:8px 12px; font-size:13px; font-weight:500; border-bottom:1px solid #F0F0F0;">442 mm</td></tr>
+            <tr><td style="padding:8px 12px; font-size:13px; color:#666;">Puissance</td><td style="padding:8px 12px; font-size:13px; font-weight:500;">1200 W</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Offer Row -->
+    <div class="sg-subsection">
+      <h3 class="sg-subsection-title">Offer-Zeile (Produktseite)</h3>
+      <div class="sg-preview">
+        <div class="sg-preview-header">Einzelnes Angebot</div>
+        <div class="sg-preview-body">
+          <div style="display:grid; grid-template-columns:140px 1fr auto auto; align-items:center; gap:16px; padding:16px 0; border-bottom:1px solid #E0E0E0;">
+            <div>
+              <div style="background:#333; color:white; padding:6px 14px; border-radius:4px; font-size:12px; font-weight:700; text-align:center; display:inline-block;">Shop</div>
+              <div style="display:flex; align-items:center; gap:4px; margin-top:6px;">
+                <div style="width:60px; height:6px; background:#E0E0E0; border-radius:3px; overflow:hidden;"><div style="height:100%; width:87%; background:#B85800; border-radius:3px;"></div></div>
+                <span style="font-size:12px; color:#666;">4,3</span>
+              </div>
+            </div>
+            <div>
+              <div style="margin-bottom:4px;"><span class="sg-badge sg-badge-orange">&#9733; Prix total le moins cher</span></div>
+              <div style="font-size:14px; font-weight:500; color:#333; margin-bottom:4px;">Karcher 1.100-240.0, Nettoyeur haute pression</div>
+              <div style="font-size:12px; color:#666;">5 jours</div>
+            </div>
+            <div style="text-align:right;">
+              <div style="font-size:20px; font-weight:700; color:#333;">465,00&nbsp;&euro;</div>
+              <div style="font-size:12px; color:#666; margin-top:2px;">+ 10,98&nbsp;&euro; livraison</div>
+            </div>
+            <div>
+              <a href="#" class="btn-secondary" style="font-size:13px; padding:10px 20px; white-space:nowrap;">Voir l'offre</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="sg-code">
+<span class="comment">/* Layout: */</span> display: grid; grid-template-columns: 160px 1fr auto auto auto;<br>
+<span class="comment">/* Padding: */</span> 16px 0; border-bottom: 1px solid #E0E0E0;<br>
+<span class="comment">/* Price: */</span> font-size: 20px; font-weight: 700;<br>
+<span class="comment">/* CTA: */</span> border: 2px solid #2B2D42; (outlined style);
+      </div>
+    </div>
+
+    <!-- Trust Bar -->
+    <div class="sg-subsection">
+      <h3 class="sg-subsection-title">Trust-Bar</h3>
+      <div class="sg-preview">
+        <div class="sg-preview-header">Trust-Bar (Homepage Hero-Bereich)</div>
+        <div class="sg-preview-body no-pad" style="background:#2B2D42; padding:20px; display:flex; justify-content:space-around;">
+          <div style="text-align:center; color:rgba(255,255,255,0.85); font-size:13px; padding:8px 20px;">
+            <svg viewBox="0 0 24 24" stroke-width="1.6" xmlns="http://www.w3.org/2000/svg" style="width:36px; height:36px; stroke:white; fill:none; display:block; margin:0 auto 8px;">
+              <path d="M3 9.5L12 3l9 6.5V21a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z"/>
+              <path d="M9 22V12h6v10"/>
+            </svg>
+            <div style="font-family:'Oswald',sans-serif; font-size:14px; font-weight:600; color:white; margin-bottom:4px;">500+ boutiques</div>
+            <span>Lancement 2026</span>
+          </div>
+          <div style="border-left:1px solid rgba(255,255,255,0.35); text-align:center; color:rgba(255,255,255,0.85); font-size:13px; padding:8px 20px;">
+            <svg viewBox="0 0 24 24" stroke-width="1.6" xmlns="http://www.w3.org/2000/svg" style="width:36px; height:36px; stroke:white; fill:none; display:block; margin:0 auto 8px;">
+              <rect x="3" y="3" width="7" height="7" rx="1"/>
+              <rect x="14" y="3" width="7" height="7" rx="1"/>
+              <rect x="3" y="14" width="7" height="7" rx="1"/>
+              <rect x="14" y="14" width="7" height="7" rx="1"/>
+            </svg>
+            <div style="font-family:'Oswald',sans-serif; font-size:14px; font-weight:600; color:white; margin-bottom:4px;">40M+ offres</div>
+            <span>Lancement 2026</span>
+          </div>
+          <div style="border-left:1px solid rgba(255,255,255,0.35); text-align:center; color:rgba(255,255,255,0.85); font-size:13px; padding:8px 20px;">
+            <svg viewBox="0 0 24 24" stroke-width="1.6" xmlns="http://www.w3.org/2000/svg" style="width:36px; height:36px; stroke:white; fill:none; display:block; margin:0 auto 8px;">
+              <path d="M3 9.5L12 3l9 6.5V21a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z"/>
+              <circle cx="18" cy="8" r="4" fill="none"/>
+              <path d="M16 6l2 2 4-4" stroke-width="1.5"/>
+            </svg>
+            <div style="font-family:'Oswald',sans-serif; font-size:14px; font-weight:600; color:white; margin-bottom:4px;">Specialiste</div>
+            <span>Votre comparateur dedie</span>
+          </div>
+        </div>
+      </div>
+      <div class="sg-code">
+background: #2B2D42; opacity: 0.9; height: 140px;<br>
+<span class="comment">/* Icons: */</span> 36x36px, stroke: white, fill: none;<br>
+<span class="comment">/* Title: */</span> font-family: 'Oswald'; font-size: 14px; font-weight: 600;<br>
+<span class="comment">/* Subtitle: */</span> font-size: 13px; color: rgba(255,255,255,0.85);<br>
+<span class="comment">/* Divider: */</span> border-left: 1px solid rgba(255,255,255,0.35);
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- 7. ICONS -->
+  <!-- ============================================================ -->
+  <div class="sg-section" id="icons">
+    <h2 class="sg-section-title">7. Icons</h2>
+    <p class="sg-section-desc">SVG-Icons mit stroke-Stil (keine Fill-Icons). Standard: stroke-width="1.6", viewBox="0 0 24 24".</p>
+
+    <div class="sg-icon-grid">
+      <div class="sg-icon-item">
+        <svg viewBox="0 0 24 24" stroke-width="1.6" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3 9.5L12 3l9 6.5V21a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z"/>
+          <path d="M9 22V12h6v10"/>
+        </svg>
+        <span>Haus / Home</span>
+      </div>
+      <div class="sg-icon-item">
+        <svg viewBox="0 0 24 24" stroke-width="1.6" xmlns="http://www.w3.org/2000/svg">
+          <rect x="3" y="3" width="7" height="7" rx="1"/>
+          <rect x="14" y="3" width="7" height="7" rx="1"/>
+          <rect x="3" y="14" width="7" height="7" rx="1"/>
+          <rect x="14" y="14" width="7" height="7" rx="1"/>
+        </svg>
+        <span>Grid / Angebote</span>
+      </div>
+      <div class="sg-icon-item">
+        <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+          <path d="m15 18-6-6 6-6"/>
+        </svg>
+        <span>Chevron Left</span>
+      </div>
+      <div class="sg-icon-item">
+        <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+          <path d="m9 18 6-6-6-6"/>
+        </svg>
+        <span>Chevron Right</span>
+      </div>
+      <div class="sg-icon-item">
+        <svg viewBox="0 0 24 24" stroke-width="2" xmlns="http://www.w3.org/2000/svg">
+          <line x1="4" y1="6" x2="20" y2="6"/>
+          <line x1="4" y1="12" x2="16" y2="12"/>
+          <line x1="4" y1="18" x2="12" y2="18"/>
+        </svg>
+        <span>Filter</span>
+      </div>
+      <div class="sg-icon-item">
+        <svg viewBox="0 0 24 24" stroke-width="1.6" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="11" cy="11" r="8"/>
+          <path d="M21 21l-4.35-4.35"/>
+        </svg>
+        <span>Suche</span>
+      </div>
+    </div>
+
+    <div class="sg-code" style="margin-top:16px;">
+<span class="comment">/* Icon-Stil: */</span><br>
+stroke: #2B2D42; <span class="comment">/* auf weissem BG */</span><br>
+stroke: white; <span class="comment">/* auf dunklem BG */</span><br>
+fill: none;<br>
+stroke-width: 1.6; <span class="comment">/* Trust-Bar */</span> | 2; <span class="comment">/* Navigation */</span><br>
+width: 36px; height: 36px; <span class="comment">/* Trust-Bar */</span><br>
+width: 20px; height: 20px; <span class="comment">/* Carousel-Pfeile */</span><br>
+width: 14px; height: 14px; <span class="comment">/* Filter-Bar */</span>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- 8. PAGE TYPES -->
+  <!-- ============================================================ -->
+  <div class="sg-section" id="pages">
+    <h2 class="sg-section-title">8. Seitentypen</h2>
+    <p class="sg-section-desc">Drei Seitentypen bilden das Whitelabel: Homepage, Suchergebnisse und Produktseite.</p>
+
+    <div class="sg-subsection">
+      <h3 class="sg-subsection-title">Homepage (index.html)</h3>
+      <table class="sg-table">
+        <thead><tr><th>Bereich</th><th>Beschreibung</th></tr></thead>
+        <tbody>
+          <tr><td>Hero Section</td><td>Vollbild-Hintergrund (564px), Anthrazit-Overlay 45%, Logo transparent, Suchfeld zentriert, Trust-Bar am unteren Rand</td></tr>
+          <tr><td>Marken-Carousel</td><td>Horizontales Karussell mit 200x104px Tiles, Pfeile links/rechts mit #E8EDF5 BG</td></tr>
+          <tr><td>Shop-Carousel</td><td>Gleiche Struktur wie Marken, 160x60px Logo-Bilder</td></tr>
+          <tr><td>Kategorie-Teaser</td><td>2-spaltig: Links Hauptprodukt (300x250px Bild), rechts 3 Sub-Produkte. CTA primary links, outlined rechts</td></tr>
+          <tr><td>Advantage Boxes</td><td>2x2 Grid, border: 1px solid #E0E0E0, border-radius: 8px, Anthrazit-Tags (#2B2D42, pill-form)</td></tr>
+          <tr><td>Footer</td><td>BG: #1E1F2E, 5-Spalten Kategorien (Desktop), Accordion (Mobile), Suchfeld, Legal-Links</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="sg-subsection">
+      <h3 class="sg-subsection-title">Suchergebnisse (search-results.html)</h3>
+      <table class="sg-table">
+        <thead><tr><th>Bereich</th><th>Beschreibung</th></tr></thead>
+        <tbody>
+          <tr><td>Header</td><td>Fester BG #2B2D42, Logo + Inline-Suchfeld (max-width: 500px) + Kategorie-Menu</td></tr>
+          <tr><td>Breadcrumb</td><td>Links in #B85800, Separator &rsaquo; in #999</td></tr>
+          <tr><td>Sidebar (250px)</td><td>Sticky, Details/Summary-Panels: Sortierung, Zustand, Preis, Marken, Shops, verwandte Suchen</td></tr>
+          <tr><td>Produkt-Grid</td><td>5 Spalten (Desktop), 3 (Tablet), 2 (Mobile). Cards mit aspect-ratio: 1 Bildflaeche</td></tr>
+          <tr><td>Pagination</td><td>Zentriert, 36x36px Items, aktiv = #2B2D42</td></tr>
+          <tr><td>FAQ Section</td><td>Content-Box mit Accordion (details/summary), + / - Toggle</td></tr>
+          <tr><td>Editorial Content</td><td>Content-Box, H2 in #2B2D42, Links in #B85800, AI-Hinweis in #999 italic</td></tr>
+          <tr><td>Mobile Filter</td><td>Filter-Bar (nur Mobile sichtbar), Sidebar als fixed Overlay (85% width, max 320px)</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="sg-subsection">
+      <h3 class="sg-subsection-title">Produktseite (product.html)</h3>
+      <table class="sg-table">
+        <thead><tr><th>Bereich</th><th>Beschreibung</th></tr></thead>
+        <tbody>
+          <tr><td>Header</td><td>Identisch mit Suchergebnisse</td></tr>
+          <tr><td>Produkttitel</td><td>H1 in Oswald 24px/600, border-bottom: 1px solid #E0E0E0</td></tr>
+          <tr><td>Toolbar</td><td>Tab-Navigation (Offres, Fiche technique, Infos), Neuf/Occasion Toggle, border-bottom: 2px</td></tr>
+          <tr><td>Layout</td><td>2 Spalten: Links Angebotsliste, Rechts Sticky Sidebar (300px) mit Produktbild + Best-Price</td></tr>
+          <tr><td>Promoted Offer</td><td>Border: 2px solid #E0E0E0, BG: #FAFAFA, "Publicite"-Label in 11px uppercase #999</td></tr>
+          <tr><td>Offer-Zeilen</td><td>5-Spalten Grid: Shop-Logo + Rating, Details + Badges, Payment, Preis, CTA (outlined)</td></tr>
+          <tr><td>Fiche Technique</td><td>Content-Box, Gruppen mit H3 + Table, alternating rows (#F8F8F8)</td></tr>
+          <tr><td>Beschreibung</td><td>Content-Box, "En bref" Highlight-Box (BG: #F8F9FA), Pros/Cons 2-spaltig</td></tr>
+          <tr><td>Aehnliche Produkte</td><td>5-Spalten Product-Grid (gleich wie Suchergebnisse)</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="sg-subsection">
+      <h3 class="sg-subsection-title">Header-Varianten</h3>
+      <table class="sg-table">
+        <thead><tr><th>Seite</th><th>Header-Stil</th><th>Suchfeld</th></tr></thead>
+        <tbody>
+          <tr><td>Homepage</td><td>Transparent (ueber Hero)</td><td>Im Hero-Bereich (gross, 50px)</td></tr>
+          <tr><td>Suchergebnisse</td><td>Solid #2B2D42</td><td>Im Header integriert (40px)</td></tr>
+          <tr><td>Produktseite</td><td>Solid #2B2D42</td><td>Im Header integriert (40px)</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="sg-subsection">
+      <h3 class="sg-subsection-title">Footer (alle Seiten identisch)</h3>
+      <div class="sg-preview">
+        <div class="sg-preview-header">Footer-Struktur</div>
+        <div class="sg-preview-body no-pad" style="background:#1E1F2E; padding:24px;">
+          <div style="display:grid; grid-template-columns:repeat(5,1fr); gap:16px; margin-bottom:20px;">
+            <div>
+              <div style="font-family:'Oswald',sans-serif; color:white; font-weight:700; font-size:14px; margin-bottom:8px;">Outillage</div>
+              <div style="color:rgba(255,255,255,0.72); font-size:13px; line-height:2;">Perceuse<br>Visseuse<br>Scie circulaire</div>
+            </div>
+            <div>
+              <div style="font-family:'Oswald',sans-serif; color:white; font-weight:700; font-size:14px; margin-bottom:8px;">Jardin</div>
+              <div style="color:rgba(255,255,255,0.72); font-size:13px; line-height:2;">Tondeuse<br>Taille-haie<br>Nettoyeur HP</div>
+            </div>
+            <div>
+              <div style="font-family:'Oswald',sans-serif; color:white; font-weight:700; font-size:14px; margin-bottom:8px;">Salle de Bain</div>
+              <div style="color:rgba(255,255,255,0.72); font-size:13px; line-height:2;">Robinetterie<br>WC suspendu<br>Meuble vasque</div>
+            </div>
+            <div>
+              <div style="font-family:'Oswald',sans-serif; color:white; font-weight:700; font-size:14px; margin-bottom:8px;">Mobilier</div>
+              <div style="color:rgba(255,255,255,0.72); font-size:13px; line-height:2;">Salon de jardin<br>Parasol<br>Chaise longue</div>
+            </div>
+            <div>
+              <div style="font-family:'Oswald',sans-serif; color:white; font-weight:700; font-size:14px; margin-bottom:8px;">Maison</div>
+              <div style="color:rgba(255,255,255,0.72); font-size:13px; line-height:2;">Eclairage<br>Peinture<br>Chauffage</div>
+            </div>
+          </div>
+          <div style="border-top:1px solid rgba(255,255,255,0.2); padding-top:16px;">
+            <div style="color:white; font-size:16px; font-weight:600; margin-bottom:10px;">Vous n'avez pas trouve ?</div>
+            <div style="display:flex; max-width:400px;">
+              <input style="flex:1; height:40px; border:none; border-radius:4px 0 0 4px; padding:0 14px; font-size:14px;" placeholder="Que recherchez-vous ?">
+              <button style="background:#B85800; color:white; border:none; height:40px; padding:0 18px; border-radius:0 4px 4px 0; font-weight:700; font-size:13px; cursor:pointer;">Comparer</button>
+            </div>
+          </div>
+          <div style="border-top:1px solid rgba(255,255,255,0.12); margin-top:16px; padding-top:12px; display:flex; gap:16px;">
+            <span style="color:rgba(255,255,255,0.7); font-size:13px;">Mentions legales</span>
+            <span style="color:rgba(255,255,255,0.7); font-size:13px;">Confidentialite</span>
+            <span style="color:rgba(255,255,255,0.7); font-size:13px;">CGV</span>
+            <span style="color:rgba(255,255,255,0.7); font-size:13px;">Contact</span>
+          </div>
+          <div style="color:rgba(255,255,255,0.5); font-size:12px; margin-top:8px;">&copy; 2026 lamaison-lejardin.fr</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /sg-wrapper -->
+
+</body>
+</html>
